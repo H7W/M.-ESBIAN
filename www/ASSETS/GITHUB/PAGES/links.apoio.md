@@ -34,6 +34,8 @@
 
 ### **Links de apoio - baixa prioridade ❕**
 > - [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet)
+>    - [Checks box](https://github.com/ikatyang/emoji-cheat-sheet#other-symbol)
+>    - [other-symbol | Geometric](https://github.com/ikatyang/emoji-cheat-sheet#other-symbol)
 > - [cruds 1.0.2](https://github.com/H7W/CRUDS-v1.0.2/edit/master/README.md)
 > - [:film_strip: Curso Git/Github #28 - Como criar um README bonitão para o seu portifólio no Github (Parte 1)](https://youtu.be/dqXgY1sYXpE)
 > - [guia-markdown.pdf](https://github.com/gustavoguanabara/git-github/blob/master/manuais-PDF/guia-markdown.pdf)
