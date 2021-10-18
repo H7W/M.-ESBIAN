@@ -280,6 +280,11 @@ body .dest_xTH1 {
   background-color: #e3e3e3;
 }
 
+body .dest_xTH2 {
+  color: dodgerblue;
+  background-color: #e3e3e3;
+}
+
 body .xT1, body .xT2 {
   margin-bottom: 5px;
 }

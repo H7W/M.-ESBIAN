@@ -1,15 +1,13 @@
 // criar topicos com dinâmicas -v1.0.0.
-
-// → 1° Fase: para cada 'tag h' add class xT (xT1 => h1, xTH2 => h2 etc)
+// → 1° Fase:
 $('.leitor > h1').each(function () {
-    $(this).addClass('xT1') // * para cada H1 add class xT1
+    $(this).addClass('xT1')
 })
 $('.leitor > h2').each(function () {
-    $(this).addClass('xT2') // * para cada H2 add class xT2
+    $(this).addClass('xT2')
 })
 
-
-// → 2° Fase: timingClick  e add class para destacar o título
+// → 2° Fase:
 const topicosDyn = { // *
     init: () => {
         topicosDyn.timignClick(
@@ -30,27 +28,27 @@ const topicosDyn = { // *
     ) {
         var timer;
         _el.on(_eventIn, $(this), function (e) {
-            let $this = $(this) // * set variável $this a partir do elemento selecionado
-            timer = setTimeout(function () { // * setTimeout de 1s e 100ms
+            let $this = $(this)
+            timer = setTimeout(function () {
                 switch ($this.prop('tagName')) {
                     case 'H1':
-                        // console.log($this.prop('tagName')+' => H1')
-                        topicosDyn.tratarH1($this, '.xT1') // * chamar a função tratarH1
-                        $this.toggleClass('dest_xTH1') // * set uma class para destacar a tag H1    break;
+                        topicosDyn.tratarH1($this, '.xT1')
+                        $this.toggleClass('dest_xTH1')
                     case 'H2':
-                        // console.log($this.prop('tagName')+' => H2')
-
+                        topicosDyn.tratarH2($this, '.xT2')
+                        $this.toggleClass('dest_xTH2')
                     default:
                         break;
                 }
             }, 1100)
             return false;
         }).on(_eventOut, $(this), function () {
-            clearTimeout(timer) // * para a contagem do timingClick
+            clearTimeout(timer)
             return false
         })
     },
-    tratarH1: function xT1(_el, // * el clicado
+    tratarH1: function xT1(
+        _el, // * el clicado
         _xT1 // * tag principal a tratada
     ) {
         let recolhido = _el.hasClass('H1-recolhido') // * verificar se tem a class 'H1-recolhido
@@ -65,6 +63,41 @@ const topicosDyn = { // *
             _el.removeClass('H1-recolhido') // * remover a class 'H1-recolhido porque agora não está mais recolhido'
             _el.nextUntil('h2').removeClass('ocultar') // *
             _el.nextUntil(_xT1).filter('h2').removeClass('ocultar').addClass('H2-recolhido')
+
+        }
+    },
+    tratarH2: function xT2(
+        _el, // * el clicado
+        _xT2 // * tag principal a tratada
+    ) {
+        let recolhido = _el.hasClass('H2-recolhido') // * verificar se tem a class 'H2-recolhido
+
+        if (!recolhido) { // * se não tiver a class ''H2-recolhido' então...
+            let retunarElEntre = _el.nextUntil('h2')
+            let getFilter = retunarElEntre.filter('h1')
+
+            console.log('False: ' + recolhido)
+            console.log(getFilter.is())
+
+            switch (getFilter.is()) {
+                case getFilter.is(getFilter):
+                    // console.log("Depois do último elemento do _el É um h2")
+                    _el.nextUntil('h2').addClass('ocultar')
+                    _el.addClass('H2-recolhido')
+                    break;
+                case !getFilter.is(getFilter):
+                    // console.log("Depois do último elemento do _el Não é um h2")
+                    _el.nextUntil('h1').addClass('ocultar')
+                    _el.addClass('H2-recolhido')
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            // console.log('True: ' + recolhido)
+            // _el.removeClass('H2-recolhido') // * remover a class 'H2-recolhido porque agora não está mais recolhido'
+            // _el.nextUntil('h2').removeClass('ocultar') // *
+            // _el.nextUntil(_xT2).filter('h2').removeClass('ocultar').addClass('H2-recolhido')
 
         }
     }
