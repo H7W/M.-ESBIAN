@@ -39,7 +39,7 @@ const topicosDyn = { // *
                         $this.toggleClass('dest_xTH1') // * set uma class para destacar a tag H1    break;
                     case 'H2':
                         // console.log($this.prop('tagName')+' => H2')
-                        
+
                     default:
                         break;
                 }

@@ -5,7 +5,30 @@
 > - [▶️ Configurando rapidamente repositórios Git e Github pelo VS Code // Mão no Código #5](https://www.youtube.com/watch?v=H0SQAW9tmmE&t=702s)
 > - [▶️ Descomplicando Branches no Git usando VS Code // Mão no Código #6 // Mão no Código #5](https://www.youtube.com/watch?v=oXMgyQt0ce0&t=488s&ab_channel=C%C3%B3digoFonteTV)
 > - [⚡ evento touchstart](https://www.w3schools.com/jsref/event_touchstart.asp)
+> - [ ❗❗@ There are a few ways to accomplish that | Renaming local and remote](https://stackoverflow.com/questions/30590083/how-do-i-rename-both-a-git-local-and-remote-branch-name)
+>    - Código: Renaming local and remote
+>   ```md
 >
+>       <!-- Rename the local branch to the new name -->
+>       git branch -m <old_name> <new_name>
+>
+>       <!-- Delete the old branch on remote - where <remote> is, for example, origin -->
+>       git push <remote> --delete <old_name>
+>
+>       <!-- # Or shorter way to delete remote branch [:] -->
+>       git push <remote> :<old_name>
+>
+>       <!-- # Prevent git from using the old name when pushing in the next step. -->
+>       <!-- # Otherwise, git will use the old upstream name instead of <new_name>. -->
+>       git branch --unset-upstream <new_name>
+>
+>       <!-- # Push the new branch to remote -->
+>       git push <remote> <new_name>
+>
+>       <!-- # Reset the upstream branch for the new_name local branch -->
+>       git push <remote> -u <new_name>
+>
+>   ```
 > - ####  Tratar data e horas
 >    - - ☑️ [How to get current date in jQuery?](https://stackoverflow.com/questions/8398897/how-to-get-current-date-in-jquery)
 >    - - ☑️ [How to get datetime in JavaScript?](https://stackoverflow.com/questions/4744299/how-to-get-datetime-in-javascript)
