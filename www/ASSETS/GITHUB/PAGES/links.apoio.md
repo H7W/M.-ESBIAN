@@ -9,23 +9,23 @@
 >    - Código: Renaming local and remote
 >   ```md
 >
->       <!-- Rename the local branch to the new name -->
+>       <!-- Renomeie a filial local para o novo nome -->
 >       git branch -m <old_name> <new_name>
 >
->       <!-- Delete the old branch on remote - where <remote> is, for example, origin -->
+>       <!-- Excluir a filial antiga no controle remoto - onde <remote> é, por exemplo, origem -->
 >       git push <remote> --delete <old_name>
 >
->       <!-- # Or shorter way to delete remote branch [:] -->
+>       <!-- # Ou maneira mais curta de excluir ramo remoto [:] -->
 >       git push <remote> :<old_name>
 >
->       <!-- # Prevent git from using the old name when pushing in the next step. -->
->       <!-- # Otherwise, git will use the old upstream name instead of <new_name>. -->
+>       <!-- Evite que Git use o nome antigo ao empurrar na próxima etapa. -->
+>       <!-- Caso contrário, o Git usará o nome do upstream antigo em vez de <new_name>. -->
 >       git branch --unset-upstream <new_name>
 >
->       <!-- # Push the new branch to remote -->
+>       <!-- Empurre o novo ramo para remoto -->
 >       git push <remote> <new_name>
 >
->       <!-- # Reset the upstream branch for the new_name local branch -->
+>       <!-- Redefinir a filial upstream para o ramo local New_Name -->
 >       git push <remote> -u <new_name>
 >
 >   ```
