@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="br.com.esbain" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>ESBIAN</name>
+    <description>
+        ESBIAN - Ministério Estudos Bíblicos Antigo e Novo Testamento -
+        Ai daquele que contende com o seu Criador! E não passa de um caco de barro entre outros cacos. Acaso, dirá o barro ao que lhe dá forma: Que fazes? Ou: A tua obra não tem alça. Isaías 45:9
+    </description>
+    <author email="dev@cordova.apache.org" href="https://github.com/H7W">
+        Herbert Pinheiro Pereira
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <preference name="LoadingDialog" value="Um momento, espere por isso" />
+        <preference name="HideKeyboardFormAccessoryBar" value="true" />
+        <preference name="Fullscreen" value="true" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <icon src="/res/icon.png" />
+</widget>
