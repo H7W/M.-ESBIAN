@@ -1,11 +1,34 @@
-
+<!-- * 254: teste arquivos em nova janela, porém efetuando pull apartir da janela principal -->
 
 ### **Links de apoio - alta prioridade ❗❗**
 >
 > - [▶️ Configurando rapidamente repositórios Git e Github pelo VS Code // Mão no Código #5](https://www.youtube.com/watch?v=H0SQAW9tmmE&t=702s)
 > - [▶️ Descomplicando Branches no Git usando VS Code // Mão no Código #6 // Mão no Código #5](https://www.youtube.com/watch?v=oXMgyQt0ce0&t=488s&ab_channel=C%C3%B3digoFonteTV)
 > - [⚡ evento touchstart](https://www.w3schools.com/jsref/event_touchstart.asp)
+> - [ ❗❗@ There are a few ways to accomplish that | Renaming local and remote](https://stackoverflow.com/questions/30590083/how-do-i-rename-both-a-git-local-and-remote-branch-name)
+>    - Código: Renaming local and remote
+>   ```md
 >
+>       <!-- Renomeie a filial local para o novo nome -->
+>       git branch -m <old_name> <new_name>
+>
+>       <!-- Excluir a filial antiga no controle remoto - onde <remote> é, por exemplo, origem -->
+>       git push <remote> --delete <old_name>
+>
+>       <!-- # Ou maneira mais curta de excluir ramo remoto [:] -->
+>       git push <remote> :<old_name>
+>
+>       <!-- Evite que Git use o nome antigo ao empurrar na próxima etapa. -->
+>       <!-- Caso contrário, o Git usará o nome do upstream antigo em vez de <new_name>. -->
+>       git branch --unset-upstream <new_name>
+>
+>       <!-- Empurre o novo ramo para remoto -->
+>       git push <remote> <new_name>
+>
+>       <!-- Redefinir a filial upstream para o ramo local New_Name -->
+>       git push <remote> -u <new_name>
+>
+>   ```
 > - ####  Tratar data e horas
 >    - - ☑️ [How to get current date in jQuery?](https://stackoverflow.com/questions/8398897/how-to-get-current-date-in-jquery)
 >    - - ☑️ [How to get datetime in JavaScript?](https://stackoverflow.com/questions/4744299/how-to-get-datetime-in-javascript)

@@ -302,11 +302,50 @@ body {
         z-index: 99;
     }
 
-    .dest_xTH1{
-        color: dodgerblue;
-        background-color: rgb(227, 227, 227);
+
+    p.testeFontes {
+        font-size: 1.125rem;
+        font-family: 'Lato Regular',helvetica,arial,sans-serif;
+        font-family: 'Open Sans Regular',helvetica,arial,sans-serif;
+        margin-bottom: 1.0rem;
+        line-height: 1.75rem;
+        letter-spacing: -.03125rem;
+        overflow-wrap: break-word;
     }
-    .xT1, .xT2 {
+    .dest_xTH1{
+        margin: 0.85rem 0rem 0.95rem 0rem !important;
+        // background-color: rgb(227, 227, 227);
+        font-size: 2rem;
+        line-height: 2.0rem;
+        letter-spacing: -0.09375rem;
+        font-weight: 700;
+        font-family: opensanstitle, helvetica, arial, sans-serif;
+        word-break: break-all;
+    }
+    .dest_xTH2{
+        color: #0078d7;
+        margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
+        // background-color: rgb(227, 227, 227);
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        letter-spacing: -0.09375rem;
+        font-weight: 700;
+        font-family: opensanstitle, helvetica, arial, sans-serif;
+        word-break: break-all;
+    }
+    .dest_xTH3{color: #f7630c;
+        margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
+        // background-color: rgb(227, 227, 227);
+        font-size: 1.2rem;
+        line-height: 1.1rem;
+        letter-spacing: -0.09375rem;
+        font-weight: 700;
+        font-family: opensanstitle, helvetica, arial, sans-serif;
+        word-break: break-all;
+    }
+    .dest_xTH4{color: #11708c; background-color: rgb(227, 227, 227); font-size: 0.9em;}
+    .dest_xTH5{color: #383838; background-color: rgb(227, 227, 227); font-size: 0.9em;}
+    .xT1, .xT2, .xT3, .xT4, .xT5, .xT6 {
         margin-bottom: 5px;
     }
     .H1-recolhido{

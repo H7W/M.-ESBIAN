@@ -275,12 +275,61 @@ body > footer {
   z-index: 99;
 }
 
-body .dest_xTH1 {
-  color: dodgerblue;
-  background-color: #e3e3e3;
+body p.testeFontes {
+  font-size: 1.125rem;
+  font-family: 'Lato Regular',helvetica,arial,sans-serif;
+  font-family: 'Open Sans Regular',helvetica,arial,sans-serif;
+  margin-bottom: 1.0rem;
+  line-height: 1.75rem;
+  letter-spacing: -.03125rem;
+  overflow-wrap: break-word;
 }
 
-body .xT1, body .xT2 {
+body .dest_xTH1 {
+  margin: 0.85rem 0rem 0.95rem 0rem !important;
+  font-size: 2rem;
+  line-height: 2.0rem;
+  letter-spacing: -0.09375rem;
+  font-weight: 700;
+  font-family: opensanstitle, helvetica, arial, sans-serif;
+  word-break: break-all;
+}
+
+body .dest_xTH2 {
+  color: #0078d7;
+  margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  letter-spacing: -0.09375rem;
+  font-weight: 700;
+  font-family: opensanstitle, helvetica, arial, sans-serif;
+  word-break: break-all;
+}
+
+body .dest_xTH3 {
+  color: #f7630c;
+  margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
+  font-size: 1.2rem;
+  line-height: 1.1rem;
+  letter-spacing: -0.09375rem;
+  font-weight: 700;
+  font-family: opensanstitle, helvetica, arial, sans-serif;
+  word-break: break-all;
+}
+
+body .dest_xTH4 {
+  color: #11708c;
+  background-color: #e3e3e3;
+  font-size: 0.9em;
+}
+
+body .dest_xTH5 {
+  color: #383838;
+  background-color: #e3e3e3;
+  font-size: 0.9em;
+}
+
+body .xT1, body .xT2, body .xT3, body .xT4, body .xT5, body .xT6 {
   margin-bottom: 5px;
 }
 
