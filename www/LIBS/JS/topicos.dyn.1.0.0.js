@@ -15,6 +15,9 @@ $('.leitor > h4').each(function () {
 $('.leitor > h5').each(function () {
     $(this).addClass('xT5')
 })
+$('.leitor > h6').each(function () {
+    $(this).addClass('xT6')
+})
 
 // → 2° Fase:
 const topicosDyn = { // *
@@ -44,7 +47,7 @@ const topicosDyn = { // *
             timer = setTimeout(function () {
                 switch ($this.prop('tagName')) {
                     case 'H1':
-                        topicosDyn.tratarH1($this, '.xT1', '.xT2', '.xT3', '.xT4', '.xT5')
+                        topicosDyn.tratarH1($this, '.xT1', '.xT2', '.xT3', '.xT4', '.xT5', '.xT6')
                         $this.toggleClass('dest_xTH1')
                         break;
                     case 'H2':
@@ -66,50 +69,38 @@ const topicosDyn = { // *
         _filtrarH2,
         _filtrarH3,
         _filtrarH4,
-        _filtrarH5
+        _filtrarH5,
+        _filtrarH6
     ) {
         //* 1° Passo: verificar se o el clicado tem a classe 'H1-recolhido'
         let recolhido = _el.hasClass('H1-recolhido')
 
-        if (!recolhido) {                           // *  se não tiver a class ''H1-recolhido' então...
+        if (!recolhido) {                           // * se não tiver a class 'H1-recolhido' então...
             // console.log('False: ' + recolhido)
-            _el.addClass('H1-recolhido')                            //* então => adicinar
+            _el.addClass('H1-recolhido')                            //* então => adicinar 'H1-recolhido'
             let todosElsEntre = _el.nextUntil(_xT1)                 // * nexUntil => selecionar todos os els  entre 'xTH1' clicado e o próximo 'xTH1'
                 ocultarTodos = todosElsEntre.addClass('ocultar')    // * addClass => adicina a class ocultar a todos os els entre 'xTH1' e o próximo 'xTH1'
-                checkH2 = todosElsEntre.filter(_filtrarH2)        // * filtrar  => todos os 'h2'
-                checkH3 = todosElsEntre.filter(_filtrarH3)        // * filtrar  => todos os 'h3'
-                checkH4 = todosElsEntre.filter(_filtrarH4)        // * filtrar  => todos os 'h4'
-                checkH5 = todosElsEntre.filter(_filtrarH5)        // * filtrar  => todos os 'h5'
+                checkH2 = todosElsEntre.filter(_filtrarH2)          // * filtrar  => todos os 'h2'
+                checkH3 = todosElsEntre.filter(_filtrarH3)          // * filtrar  => todos os 'h3'
+                checkH4 = todosElsEntre.filter(_filtrarH4)          // * filtrar  => todos os 'h4'
+                checkH5 = todosElsEntre.filter(_filtrarH5)          // * filtrar  => todos os 'h5'
+                checkH6 = todosElsEntre.filter(_filtrarH6)          // * filtrar  => todos os 'h6'
 
-
-                if (checkH2.is('H2')) { //
-                    // console.log('TEM H2')
-                    console.log('Check xTH1 : '+checkH2.is('H2'))
-                    checkH2.removeClass('ocultar')
+                if (checkH2.is('H2')) {                             // * checkar => se tem tag(s) h2, se tiver então...
+                    checkH2.removeClass('ocultar')                  // * remover a class 'ocultar'
                 } else
-                if(!checkH2.is('H2') && checkH3.is('H3')) {
-                    console.log(
-                        'Check xTH1 : '+checkH2.is('H2') + '\n'+
-                        ' Check xTH2 : '+checkH3.is('H3')
-                    )
-                    checkH3.removeClass('ocultar')
-
+                if(!checkH2.is('H2') && checkH3.is('H3')) {         // * checkar => se não tem a tag(s) h2 e se tem a tag(s) h3, então
+                    checkH3.removeClass('ocultar')                  // * remover a class 'ocultar'
                 } else
-                if(!checkH2.is('H2') && !checkH3.is('H3') && checkH4.is('H4')) {
-                    console.log(
-                        'Check xTH1 : '+checkH2.is('H2') + '\n'+
-                        ' Check xTH2 : '+checkH3.is('H3')+ '\n'+
-                        ' Check xTH2 : '+checkH4.is('H4')
-                    )
-                        checkH3.removeClass('ocultar')
-                    // console.log('NÃO TEM H2 | NÃO TEM H3 | TEM H4')
-                    checkH4.removeClass('ocultar')
+                if(!checkH2.is('H2') && !checkH3.is('H3') && checkH4.is('H4')) { // * checkar => mesma lógica do if anteriores, porém, para checkar a tag h4
+                    checkH4.removeClass('ocultar')                  // * remover a class 'ocultar'
                 } else
-                if(!checkH2.is('H2') && !checkH3.is('H3') && !checkH4.is('H4') && checkH5.is('H5')) {
-                    console.log('NÃO TEM H2 | NÃO TEM H3 | NÃO TEM H4 | TEM H5')
-                    checkH5.removeClass('ocultar')
+                if(!checkH2.is('H2') && !checkH3.is('H3') && !checkH4.is('H4') && checkH5.is('H5')) { // * checkar => mesma lógica do if anteriores, porém, para checkar a tag h5
+                    checkH5.removeClass('ocultar')                  // * remover a class 'ocultar'
                 }
-
+                if(!checkH2.is('H2') && !checkH3.is('H3') && !checkH4.is('H4') && !checkH5.is('H5') && checkH6.is('H6')) { // * checkar => mesma lógica do if anteriores, porém, para checkar a tag h6
+                    checkH6.removeClass('ocultar')                  // * remover a class 'ocultar'
+                }
                 // switch (checkH2.is()  checkH3.is()) {
 
 // console.log(nomeMes);

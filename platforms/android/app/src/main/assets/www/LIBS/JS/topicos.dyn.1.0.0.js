@@ -15,6 +15,9 @@ $('.leitor > h4').each(function () {
 $('.leitor > h5').each(function () {
     $(this).addClass('xT5')
 })
+$('.leitor > h6').each(function () {
+    $(this).addClass('xT6')
+})
 
 // → 2° Fase:
 const topicosDyn = { // *
@@ -44,7 +47,7 @@ const topicosDyn = { // *
             timer = setTimeout(function () {
                 switch ($this.prop('tagName')) {
                     case 'H1':
-                        topicosDyn.tratarH1($this, '.xT1', '.xT2', '.xT3', '.xT4', '.xT5')
+                        topicosDyn.tratarH1($this, '.xT1', '.xT2', '.xT3', '.xT4', '.xT5', '.xT6')
                         $this.toggleClass('dest_xTH1')
                         break;
                     case 'H2':
@@ -66,7 +69,8 @@ const topicosDyn = { // *
         _filtrarH2,
         _filtrarH3,
         _filtrarH4,
-        _filtrarH5
+        _filtrarH5,
+        _filtrarH6
     ) {
         //* 1° Passo: verificar se o el clicado tem a classe 'H1-recolhido'
         let recolhido = _el.hasClass('H1-recolhido')
@@ -80,6 +84,7 @@ const topicosDyn = { // *
                 checkH3 = todosElsEntre.filter(_filtrarH3)        // * filtrar  => todos os 'h3'
                 checkH4 = todosElsEntre.filter(_filtrarH4)        // * filtrar  => todos os 'h4'
                 checkH5 = todosElsEntre.filter(_filtrarH5)        // * filtrar  => todos os 'h5'
+                checkH6 = todosElsEntre.filter(_filtrarH6)        // * filtrar  => todos os 'h6'
 
 
                 if (checkH2.is('H2')) { //
@@ -89,27 +94,42 @@ const topicosDyn = { // *
                 } else
                 if(!checkH2.is('H2') && checkH3.is('H3')) {
                     console.log(
-                        'Check xTH1 : '+checkH2.is('H2') + '\n'+
-                        ' Check xTH2 : '+checkH3.is('H3')
+                        'Check xTH2 : '+checkH2.is('H2') + '\n'+
+                        ' Check xTH3 : '+checkH3.is('H3')
                     )
                     checkH3.removeClass('ocultar')
 
                 } else
                 if(!checkH2.is('H2') && !checkH3.is('H3') && checkH4.is('H4')) {
                     console.log(
-                        'Check xTH1 : '+checkH2.is('H2') + '\n'+
-                        ' Check xTH2 : '+checkH3.is('H3')+ '\n'+
-                        ' Check xTH2 : '+checkH4.is('H4')
+                        'Check xTH2 : '+checkH2.is('H2') + '\n'+
+                        ' Check xTH3 : '+checkH3.is('H3')+ '\n'+
+                        ' Check xTH4 : '+checkH4.is('H4')
                     )
                         checkH3.removeClass('ocultar')
                     // console.log('NÃO TEM H2 | NÃO TEM H3 | TEM H4')
                     checkH4.removeClass('ocultar')
+
                 } else
                 if(!checkH2.is('H2') && !checkH3.is('H3') && !checkH4.is('H4') && checkH5.is('H5')) {
-                    console.log('NÃO TEM H2 | NÃO TEM H3 | NÃO TEM H4 | TEM H5')
+                    console.log(
+                        'Check xTH2 : '+checkH2.is('H2') + '\n'+
+                        ' Check xTH3 : '+checkH3.is('H3')+ '\n'+
+                        ' Check xTH4 : '+checkH4.is('H4')+ '\n'+
+                        ' Check xTH5 : '+checkH5.is('H5')
+                    )
                     checkH5.removeClass('ocultar')
                 }
-
+                if(!checkH2.is('H2') && !checkH3.is('H3') && !checkH4.is('H4') && !checkH5.is('H5') && checkH6.is('H6')) {
+                    console.log(
+                        'Check xTH2 : '+checkH2.is('H2') + '\n'+
+                        ' Check xTH3 : '+checkH3.is('H3')+ '\n'+
+                        ' Check xTH4 : '+checkH4.is('H4')+ '\n'+
+                        ' Check xTH5 : '+checkH5.is('H5')+ '\n'+
+                        ' Check xTH6 : '+checkH6.is('H6')
+                    )
+                    checkH6.removeClass('ocultar')
+                }
                 // switch (checkH2.is()  checkH3.is()) {
 
 // console.log(nomeMes);
