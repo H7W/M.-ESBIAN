@@ -45,8 +45,8 @@ timingClick  e add class para destacar o título
 - #### ⚡ Aplicar o **método touchstart jquery**
 - #### ⚡ Aplicar o **método touchend jquery**
 
-> [touchstart]() |
-> [touchend]() |
+> [touchstart](https://www.w3schools.com/jsref/event_touchstart.asp) |
+> [touchend](https://www.w3schools.com/jsref/event_touchend.asp) |
 >
 >    - 1° Parte [ `setTimeout` ]
 >      - ☑️ se o tempo em que o el clicado for `>=` do que x tempo (x tempo, definido em `setTimeout`) faça algum coisa e
@@ -118,3 +118,12 @@ timingClick  e add class para destacar o título
 ###### Fim da 1° Fase
 ----
 
+## ⚜️  Terceira Fase:
+_tratar tag h1_
+
+- #### **1° Passo:** verificar se o el clicado tem a classe 'H1-recolhido'. Se não tiver a class ''H1-recolhido' então...
+- #### **2° Passo:** add class 'H1-recolhido' ao elemento clicado
+- #### **3° Passo:** obter todos os els desde o xTH1 clicado até o próximo xTH1 na árvore Dom
+- #### **4° Passo:** ocultar todos os els entre o xTH1 clicado  até o próximo xTH1 na árvore Dom
+- #### **5° Passo:** remover a class 'H1-recolhido (agora não está mais recolhido)
+- #### **6° Passo:** 
