@@ -19,7 +19,7 @@
 
                 $dtFull.html(getDtStringLongBr((new Date()).toISOString().split('T')[0]))
 
-            // $demo.on("touchstart", $demo,app.touchstart)
+            // * $demo.on("touchstart", $demo,app.touchstart)
             $ripple.on("click", $(this),function(e){
                 app.efeitoOnda(
                     e,

@@ -252,10 +252,7 @@ body > .paginas > main {
 }
 
 body > .paginas > main > h1 {
-  color: dodgerblue;
-  background-color: gainsboro;
-  font-size: 1.7em;
-  letter-spacing: 3px;
+  margin: 8px 0px 5px 0px;
 }
 
 body > .paginas > main > p {
@@ -276,5 +273,23 @@ body > footer {
   position: fixed;
   bottom: 0;
   z-index: 99;
+}
+
+body .dest_xTH1 {
+  color: dodgerblue;
+  background-color: #e3e3e3;
+}
+
+body .dest_xTH2 {
+  color: dodgerblue;
+  background-color: #e3e3e3;
+}
+
+body .xT1, body .xT2 {
+  margin-bottom: 5px;
+}
+
+body .H1-recolhido {
+  margin-bottom: 15px;
 }
 /*# sourceMappingURL=index.css.map */

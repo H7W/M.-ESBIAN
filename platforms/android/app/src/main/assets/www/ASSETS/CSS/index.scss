@@ -274,10 +274,11 @@ body {
             // overflow: hidden;
 
             > h1 {
-                color: dodgerblue;
-                background-color: gainsboro;
-                font-size: 1.7em;
-                letter-spacing: 3px;
+                // color: dodgerblue;
+                margin: 8px 0px 5px 0px;
+                // background-color: gainsboro;
+                // font-size: 1.7em;
+                // letter-spacing: 3px;
             }
             > p {
                 text-align: justify;
@@ -300,4 +301,15 @@ body {
         bottom: 0;
         z-index: 99;
     }
+
+
+    .dest_xTH1{color: dodgerblue; background-color: rgb(227, 227, 227);}
+    .dest_xTH2{color: dodgerblue; background-color: rgb(227, 227, 227);}
+    .xT1, .xT2 {
+        margin-bottom: 5px;
+    }
+    .H1-recolhido{
+        margin-bottom: 15px;
+    }
+
 }
