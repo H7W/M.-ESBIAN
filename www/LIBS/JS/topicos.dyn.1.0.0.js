@@ -88,19 +88,20 @@ const topicosDyn = { // *
             checkH5 = todosElsEntre.filter(_filtrarH5) // * filtrar  => todos os 'h5'
             checkH6 = todosElsEntre.filter(_filtrarH6) // * filtrar  => todos os 'h6'
 
-            if (checkH2.is('H2')) { // * checkar => se tem tag(s) h2, se tiver então...
+            if (checkH2.is('H2')) { // * checar => se tem tag(s) h2, se tiver então...
                 checkH2.removeClass('ocultar') // * remover a class 'ocultar'
+                checkH2.addClass('H2-recolhido') // * [@codeCheckRevise]
             } else
-            if (!checkH2.is('H2') && checkH3.is('H3')) { // * checkar => se não tem a tag(s) h2 e se tem a tag(s) h3, então
+            if (!checkH2.is('H2') && checkH3.is('H3')) { // * checar => se não tem a tag(s) h2 e se tem a tag(s) h3, então
                 checkH3.removeClass('ocultar') // * remover a class 'ocultar'
             } else
-            if (!checkH2.is('H2') && !checkH3.is('H3') && checkH4.is('H4')) { // * checkar => mesma lógica do if anteriores, porém, para checkar a tag h4
+            if (!checkH2.is('H2') && !checkH3.is('H3') && checkH4.is('H4')) { // * checar => mesma lógica do if anteriores, porém, para checar a tag h4
                 checkH4.removeClass('ocultar') // * remover a class 'ocultar'
             } else
-            if (!checkH2.is('H2') && !checkH3.is('H3') && !checkH4.is('H4') && checkH5.is('H5')) { // * checkar => mesma lógica do if anteriores, porém, para checkar a tag h5
+            if (!checkH2.is('H2') && !checkH3.is('H3') && !checkH4.is('H4') && checkH5.is('H5')) { // * checar => mesma lógica do if anteriores, porém, para checar a tag h5
                 checkH5.removeClass('ocultar') // * remover a class 'ocultar'
             } else
-            if (!checkH2.is('H2') && !checkH3.is('H3') && !checkH4.is('H4') && !checkH5.is('H5') && checkH6.is('H6')) { // * checkar => mesma lógica do if anteriores, porém, para checkar a tag h6
+            if (!checkH2.is('H2') && !checkH3.is('H3') && !checkH4.is('H4') && !checkH5.is('H5') && checkH6.is('H6')) { // * checar => mesma lógica do if anteriores, porém, para checar a tag h6
                 checkH6.removeClass('ocultar') // * remover a class 'ocultar'
             }
         } else { // * #EXPANDIR-H1
@@ -108,15 +109,14 @@ const topicosDyn = { // *
             let todosElsEntre = _el.nextUntil(_xT1) // * nexUntil => selecionar todos os els  entre 'xTH1' clicado e o próximo 'xTH1'
             checkH2 = todosElsEntre.filter(_filtrarH2) // * filtrar  => todos os 'h2'
 
-            if (!checkH2.is('H2')) { // * checkar => se tem tag(s) h2, se tiver então...
-                console.log('check is h2: '+checkH2.is('H2')) // * false significad que não tem nenhuama tag h2 entre os els 'xTH1' clicado e o próximo 'xTH1'
+            if (!checkH2.is('H2')) { // * checar => se tem tag(s) h2, se tiver então...
                 mostrarTodos = todosElsEntre.removeClass('ocultar') // * removeClass => 'ocultar' e assim mostrar todos os els entre as tag h1
                 checkH2.removeClass('ocultar') // * remover a class 'ocultar'
-                checkH2.addClass('H2-recolhido')
+                // checkH2.addClass('H2-recolhido')
             } else
-            if(checkH2.is('H2')){
-                console.log('check is h2: '+checkH2.is('H2')) // * false significad que não tem nenhuama tag h2 entre os els 'xTH1' clicado e o próximo 'xTH1'
-                mostrarTodos = todosElsEntre.removeClass('ocultar') // * removeClass => 'ocultar' e assim mostrar todos os els entre as tag h1
+            if(checkH2.is('H2')){ // * checar => se tem tag(s) h2, caso tenha então...
+                console.log('check is h2: '+checkH2.is('H2'))
+                _el.nextUntil(_filtrarH2).removeClass('ocultar') // * [@codeCheckRevise] remover class ocultar entre '.xT1' clicado até o próximo 'xT2' encontrado
             }
         }
     },
@@ -135,22 +135,39 @@ const topicosDyn = { // *
             checkH2 = todosElsEntre.filter(_filtrarH2)
             console.log(checkH1)
 
-            if (!checkH1.is('H1')){ // → sendo tratado o H2
-                ocultarTodos = todosElsEntre.addClass('ocultar') // * adcionar no ultimo if
+            if (!checkH1.is('H1')){ // → [@codeCheckRevise] sendo tratado o H2
+                ocultarTodos = todosElsEntre.addClass('ocultar') // * [@codeCheckRevise] adcionar no ultimo if
             } else
-            if (checkH1.is('H1')) {
-                console.log(checkH1.is('H1'))
-                _el.nextUntil(_filtrarH1).addClass('ocultar')
+            if (checkH1.is('H1')) { //* [@codeCheckRevise]
+                console.log(checkH1.is('H1')) //* [@codeCheckRevise]
+                _el.nextUntil(_filtrarH1).addClass('ocultar') //* [@codeCheckRevise]
             } else
-            if(checkH2.is('H2')){
-                console.log(checkH1.is('H2'))
-                _el.nextUntil(_filtrarH2).addClass('ocultar')
+            if(checkH2.is('H2')){ //* [@codeCheckRevise]
+                console.log(checkH1.is('H2')) //* [@codeCheckRevise]
+                _el.nextUntil(_filtrarH2).addClass('ocultar') //* [@codeCheckRevise]
             }
 
             // ocultarTodos = todosElsEntre.addClass('ocultar') // * adcionar no ultimo if
 
         } else {// * #EXPANDIR-H2
-            _el.removeClass('H2-recolhido') //* então => adicinar 'H2-recolhido'
+            _el.removeClass('H2-recolhido') //* então => remover 'H2-recolhido'
+
+            let todosElsEntre = _el.nextUntil(_xT2) //* [@codeCheckRevise]
+            checkH1 = todosElsEntre.filter(_filtrarH1) //* [@codeCheckRevise]
+            checkH2 = todosElsEntre.filter(_filtrarH2) //* [@codeCheckRevise]
+            console.log(checkH1)
+
+            if (!checkH1.is('H1')){ // → [@codeCheckRevise] sendo tratado o H2
+                ocultarTodos = todosElsEntre.removeClass('ocultar') // * [@codeCheckRevise] adcionar no ultimo if
+            } else
+            if (checkH1.is('H1')) { // * [@codeCheckRevise]
+                console.log(checkH1.is('H1')) //* [@codeCheckRevise]
+                _el.nextUntil(_filtrarH1).removeClass('ocultar') //* [@codeCheckRevise]
+            } else
+            if(checkH2.is('H2')){ //* [@codeCheckRevise]
+                console.log(checkH1.is('H2')) // * [@codeCheckRevise]
+                _el.nextUntil(_filtrarH2).removeClass('ocultar') // * [@codeCheckRevise]
+            }
 
         }
     }
