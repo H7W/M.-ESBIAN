@@ -318,6 +318,10 @@ body > footer {
 }
 
 body .H1-recolhido {
-  margin-bottom: 15px;
+  color: red !important;
+}
+
+body .H2-recolhido {
+  color: blue;
 }
 /*# sourceMappingURL=index.css.map */
