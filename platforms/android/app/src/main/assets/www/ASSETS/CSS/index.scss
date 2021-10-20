@@ -341,7 +341,7 @@ body {
         // color: coral;
         &::after {
             content: "\268A";
-            font-size: 1.2rem !important;
+            font-size: 0.9rem !important;
             font-weight: 100;
             color: #3d3b3b;
             position: absolute;
@@ -351,14 +351,13 @@ body {
             pointer-events: all;
         }
     }
-
     .H1-recolhido{
         // color: red !important;
 
         &::after {
             content: "\271A";
             font-weight: 100;
-            font-size: 1.3rem !important;
+            font-size: 0.9rem !important;
 
             color: rgb(85, 83, 83);
             transform: rotate(0deg) ;
@@ -372,7 +371,7 @@ body {
         // color: coral;
         &::before {
             content: "\268A";
-            font-size: 1.2rem !important;
+            font-size: 0.9rem !important;
             font-weight: 100;
             color: #3d3b3b;
             // position: absolute;
@@ -387,7 +386,123 @@ body {
         &::before {
             content: "\271A";
             font-weight: 100;
-            font-size: 1.3rem !important;
+            font-size: 0.9rem !important;
+
+            color: rgb(85, 83, 83);
+            // transform: rotate(0deg) ;
+            // position: absolute ;
+            cursor: pointer;
+            pointer-events: all;
+        }
+    }
+    .xT3 {
+        position: relative;
+        // color: coral;
+        &::before {
+            content: "\268A";
+            font-size: 0.9rem !important;
+            font-weight: 100;
+            color: #3d3b3b;
+            // position: absolute;
+            // top: 5%;
+            // left: -23px;
+            cursor: pointer;
+            // pointer-events: all;
+        }
+    }
+    .H3-recolhido {
+        // color: blue;
+        &::before {
+            content: "\271A";
+            font-weight: 100;
+            font-size: 0.9rem !important;
+
+            color: rgb(85, 83, 83);
+            // transform: rotate(0deg) ;
+            // position: absolute ;
+            cursor: pointer;
+            pointer-events: all;
+        }
+    }
+    .xT4 {
+        position: relative;
+        // color: coral;
+        &::before {
+            content: "\268A";
+            font-size: 0.9rem !important;
+            font-weight: 100;
+            color: #3d3b3b;
+            // position: absolute;
+            // top: 5%;
+            // left: -23px;
+            cursor: pointer;
+            // pointer-events: all;
+        }
+    }
+    .H4-recolhido {
+        // color: blue;
+        &::before {
+            content: "\271A";
+            font-weight: 100;
+            font-size: 0.9rem !important;
+
+            color: rgb(85, 83, 83);
+            // transform: rotate(0deg) ;
+            // position: absolute ;
+            cursor: pointer;
+            pointer-events: all;
+        }
+    }
+    .xT5 {
+        position: relative;
+        // color: coral;
+        &::before {
+            content: "\268A";
+            font-size: 0.9rem !important;
+            font-weight: 100;
+            color: #3d3b3b;
+            // position: absolute;
+            // top: 5%;
+            // left: -23px;
+            cursor: pointer;
+            // pointer-events: all;
+        }
+    }
+    .H5-recolhido {
+        // color: blue;
+        &::before {
+            content: "\271A";
+            font-weight: 100;
+            font-size: 0.9rem !important;
+
+            color: rgb(85, 83, 83);
+            // transform: rotate(0deg) ;
+            // position: absolute ;
+            cursor: pointer;
+            pointer-events: all;
+        }
+    }
+    .xT6 {
+        position: relative;
+        // color: coral;
+        &::before {
+            content: "\268A";
+            font-size: 0.9rem !important;
+            font-weight: 100;
+            color: #3d3b3b;
+            // position: absolute;
+            // top: 5%;
+            // left: -23px;
+            cursor: pointer;
+            // pointer-events: all;
+        }
+    }
+    .H6-recolhido {
+        // color: blue;
+        &::before {
+            content: "\271A";
+            font-weight: 100;
+            font-size: 0.9rem !important;
 
             color: rgb(85, 83, 83);
             // transform: rotate(0deg) ;

@@ -323,7 +323,7 @@ body .xT1 {
 
 body .xT1::after {
   content: "\268A";
-  font-size: 1.2rem !important;
+  font-size: 0.9rem !important;
   font-weight: 100;
   color: #3d3b3b;
   position: absolute;
@@ -336,7 +336,7 @@ body .xT1::after {
 body .H1-recolhido::after {
   content: "\271A";
   font-weight: 100;
-  font-size: 1.3rem !important;
+  font-size: 0.9rem !important;
   color: #555353;
   transform: rotate(0deg);
   position: absolute;
@@ -350,7 +350,7 @@ body .xT2 {
 
 body .xT2::before {
   content: "\268A";
-  font-size: 1.2rem !important;
+  font-size: 0.9rem !important;
   font-weight: 100;
   color: #3d3b3b;
   cursor: pointer;
@@ -359,7 +359,91 @@ body .xT2::before {
 body .H2-recolhido::before {
   content: "\271A";
   font-weight: 100;
-  font-size: 1.3rem !important;
+  font-size: 0.9rem !important;
+  color: #555353;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+body .xT3 {
+  position: relative;
+}
+
+body .xT3::before {
+  content: "\268A";
+  font-size: 0.9rem !important;
+  font-weight: 100;
+  color: #3d3b3b;
+  cursor: pointer;
+}
+
+body .H3-recolhido::before {
+  content: "\271A";
+  font-weight: 100;
+  font-size: 0.9rem !important;
+  color: #555353;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+body .xT4 {
+  position: relative;
+}
+
+body .xT4::before {
+  content: "\268A";
+  font-size: 0.9rem !important;
+  font-weight: 100;
+  color: #3d3b3b;
+  cursor: pointer;
+}
+
+body .H4-recolhido::before {
+  content: "\271A";
+  font-weight: 100;
+  font-size: 0.9rem !important;
+  color: #555353;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+body .xT5 {
+  position: relative;
+}
+
+body .xT5::before {
+  content: "\268A";
+  font-size: 0.9rem !important;
+  font-weight: 100;
+  color: #3d3b3b;
+  cursor: pointer;
+}
+
+body .H5-recolhido::before {
+  content: "\271A";
+  font-weight: 100;
+  font-size: 0.9rem !important;
+  color: #555353;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+body .xT6 {
+  position: relative;
+}
+
+body .xT6::before {
+  content: "\268A";
+  font-size: 0.9rem !important;
+  font-weight: 100;
+  color: #3d3b3b;
+  cursor: pointer;
+}
+
+body .H6-recolhido::before {
+  content: "\271A";
+  font-weight: 100;
+  font-size: 0.9rem !important;
   color: #555353;
   cursor: pointer;
   pointer-events: all;
