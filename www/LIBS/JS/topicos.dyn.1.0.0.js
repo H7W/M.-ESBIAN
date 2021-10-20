@@ -51,7 +51,7 @@ const topicosDyn = { // *
                         // $this.toggleClass('dest_xTH1')
                         break;
                     case 'H2':
-                        topicosDyn.tratarH2($this, '.xT2', '.xT1')
+                        topicosDyn.tratarH2($this, '.xT2', '.xT1', '.xT2')
                         // $this.toggleClass('dest_xTH2')
                     default:
                         break;
@@ -124,6 +124,7 @@ const topicosDyn = { // *
         _el, // * el clicado
         _xT2, // * tag principal a tratada
         _filtrarH1,
+        _filtrarH2
     ) {
         let recolhido = _el.hasClass('H2-recolhido')
 
@@ -131,6 +132,7 @@ const topicosDyn = { // *
             _el.addClass('H2-recolhido')
             let todosElsEntre = _el.nextUntil(_xT2)
             checkH1 = todosElsEntre.filter(_filtrarH1)
+            checkH2 = todosElsEntre.filter(_filtrarH2)
             console.log(checkH1)
 
             if (!checkH1.is('H1')){ // → sendo tratado o H2
@@ -138,11 +140,12 @@ const topicosDyn = { // *
             } else
             if (checkH1.is('H1')) {
                 console.log(checkH1.is('H1'))
-                _el.nextUntil('.xT1').addClass('ocultar')
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+            } else
+            if(checkH2.is('H2')){
+                console.log(checkH1.is('H2'))
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
             }
-
-
-
 
             // ocultarTodos = todosElsEntre.addClass('ocultar') // * adcionar no ultimo if
 
