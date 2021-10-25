@@ -340,7 +340,7 @@ body {
         position: relative;
         // color: coral;
         &::after {
-            content: "\268A";
+            content: "\268A ";
             font-size: 0.9rem !important;
             font-weight: 100;
             color: #3d3b3b;
@@ -355,7 +355,7 @@ body {
         // color: red !important;
 
         &::after {
-            content: "\271A";
+            content: "\271A ";
             font-weight: 100;
             font-size: 0.9rem !important;
 
@@ -370,13 +370,13 @@ body {
         position: relative;
         // color: coral;
         &::before {
-            content: "\268A";
+            content: "\268A ";
             font-size: 0.9rem !important;
             font-weight: 100;
             color: #3d3b3b;
-            // position: absolute;
-            // top: 5%;
-            // left: -23px;
+            position: relative;
+            margin: 0px 0.5rem 0px 0px;
+
             cursor: pointer;
             // pointer-events: all;
         }
@@ -384,13 +384,14 @@ body {
     .H2-recolhido {
         // color: blue;
         &::before {
-            content: "\271A";
+            content: "\271A ";
             font-weight: 100;
             font-size: 0.9rem !important;
 
             color: rgb(85, 83, 83);
-            // transform: rotate(0deg) ;
-            // position: absolute ;
+            position: relative;
+            margin: 0px 0.5rem 0px 0px;
+
             cursor: pointer;
             pointer-events: all;
         }
@@ -399,13 +400,13 @@ body {
         position: relative;
         // color: coral;
         &::before {
-            content: "\268A";
+            content: "\268A ";
             font-size: 0.9rem !important;
             font-weight: 100;
             color: #3d3b3b;
-            // position: absolute;
-            // top: 5%;
-            // left: -23px;
+            position: relative;
+            margin: 0px 0.5rem 0px 0px;
+
             cursor: pointer;
             // pointer-events: all;
         }
@@ -413,13 +414,14 @@ body {
     .H3-recolhido {
         // color: blue;
         &::before {
-            content: "\271A";
+            content: "\271A ";
             font-weight: 100;
             font-size: 0.9rem !important;
 
             color: rgb(85, 83, 83);
-            // transform: rotate(0deg) ;
-            // position: absolute ;
+            position: relative;
+            margin: 0px 0.5rem 0px 0px;
+
             cursor: pointer;
             pointer-events: all;
         }
@@ -428,13 +430,13 @@ body {
         position: relative;
         // color: coral;
         &::before {
-            content: "\268A";
+            content: "\268A ";
             font-size: 0.9rem !important;
             font-weight: 100;
             color: #3d3b3b;
-            // position: absolute;
-            // top: 5%;
-            // left: -23px;
+            position: relative;
+            margin: 0px 0.5rem 0px 0px;
+
             cursor: pointer;
             // pointer-events: all;
         }
@@ -442,13 +444,14 @@ body {
     .H4-recolhido {
         // color: blue;
         &::before {
-            content: "\271A";
+            content: "\271A ";
             font-weight: 100;
             font-size: 0.9rem !important;
 
             color: rgb(85, 83, 83);
-            // transform: rotate(0deg) ;
-            // position: absolute ;
+            position: relative;
+            margin: 0px 0.5rem 0px 0px;
+
             cursor: pointer;
             pointer-events: all;
         }
@@ -457,13 +460,15 @@ body {
         position: relative;
         // color: coral;
         &::before {
-            content: "\268A";
+            content: "\268A ";
             font-size: 0.9rem !important;
             font-weight: 100;
             color: #3d3b3b;
-            // position: absolute;
-            // top: 5%;
-            // left: -23px;
+            position: relative;
+            margin: 0px 0.5rem 0px 0px;
+            position: relative;
+            margin: 0px 0.5rem 0px 0px;
+
             cursor: pointer;
             // pointer-events: all;
         }
@@ -471,42 +476,41 @@ body {
     .H5-recolhido {
         // color: blue;
         &::before {
-            content: "\271A";
+            content: "\271A ";
             font-weight: 100;
             font-size: 0.9rem !important;
 
             color: rgb(85, 83, 83);
-            // transform: rotate(0deg) ;
-            // position: absolute ;
+            position: relative;
+            margin: 0px 0.5rem 0px 0px;
             cursor: pointer;
             pointer-events: all;
         }
     }
     .xT6 {
         position: relative;
-        // color: coral;
+        color: red;
         &::before {
-            content: "\268A";
+            content: "\268A ";
             font-size: 0.9rem !important;
             font-weight: 100;
             color: #3d3b3b;
-            // position: absolute;
-            // top: 5%;
-            // left: -23px;
+            position: relative;
+            margin: 0px 0.5rem 0px 0px;
             cursor: pointer;
             // pointer-events: all;
         }
     }
     .H6-recolhido {
-        // color: blue;
+        color: green;
         &::before {
-            content: "\271A";
+            content: "\271A ";
             font-weight: 100;
             font-size: 0.9rem !important;
 
             color: rgb(85, 83, 83);
-            // transform: rotate(0deg) ;
-            // position: absolute ;
+            position: relative;
+            margin: 0px 0.5rem 0px 0px;
             cursor: pointer;
             pointer-events: all;
         }
