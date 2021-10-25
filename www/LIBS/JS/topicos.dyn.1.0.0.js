@@ -261,25 +261,26 @@ const topicosDyn = { // *
                 checkH3.removeClass('ocultar')
                 checkH3.addClass('H3-recolhido')
             }
-            else
+            else //* caso contrário =>  TRATAR positivas : → checar se tem tag h4, entre as tags this.h2 e a próxima tag h2
             if (checkH4.is(_filtrarH4)){
                 _el.nextUntil(_filtrarH4).removeClass('ocultar')
                 checkH4.removeClass('ocultar')
                 checkH4.addClass('H4-recolhido')
             }
-            else
+            else //* caso contrário =>  TRATAR positivas : → checar se tem tag h5, entre as tags this.h2 e a próxima tag h2
             if (checkH5.is(_filtrarH5)){
                 _el.nextUntil(_filtrarH5).removeClass('ocultar')
                 checkH5.removeClass('ocultar')
                 checkH5.addClass('H5-recolhido')
             }
-            else
+            else //* caso contrário =>  TRATAR positivas : → checar se tem tag h5, entre as tags this.h2 e a próxima tag h2
             if (checkH6.is(_filtrarH6)){
                 _el.nextUntil(_filtrarH6).removeClass('ocultar')
                 checkH6.removeClass('ocultar')
                 checkH6.addClass('H6-recolhido')
-            } else
-            if (!checkH2.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+            } else //* caso contrário =>  TRATAR NEUTRAS : → checar se tem não as tags h6, h5, h4, h3 entre as tags this.h2 e a próxima tag h2
+            if (!checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+                console.log('TRATAR NEUTRAS : → checar se tem não as tags h6, h5, h4, h3 entre as tags this.h2 e a próxima tag h2')
                 _el.nextUntil(_filtrarH2).removeClass('ocultar')
             }
         }
