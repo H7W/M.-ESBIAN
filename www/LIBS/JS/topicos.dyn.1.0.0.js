@@ -172,12 +172,12 @@ const topicosDyn = { // *
             if (!checkH1.is(_filtrarH1) && checkH3.is(_filtrarH3)){
                 _el.nextUntil(_filtrarH2).addClass('ocultar')
                 checkH3.removeClass('ocultar')
-                checkH3.addClass('n6-recolhido')
+                checkH3.addClass('n3-recolhido')
             } else
             if (!checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){
                 _el.nextUntil(_filtrarH2).addClass('ocultar')
                 checkH4.removeClass('ocultar')
-                checkH4.addClass('n6-recolhido')
+                checkH4.addClass('n4-recolhido')
             } else
             if (!checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){
                 _el.nextUntil(_filtrarH2).addClass('ocultar')
@@ -193,12 +193,12 @@ const topicosDyn = { // *
             if (checkH1.is(_filtrarH1) && checkH3.is(_filtrarH3)){
                 _el.nextUntil(_filtrarH1).addClass('ocultar')
                 checkH3.removeClass('ocultar')
-                checkH3.addClass('n6-recolhido')
+                checkH3.addClass('n3-recolhido')
             }
             if (checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){
                 _el.nextUntil(_filtrarH1).addClass('ocultar')
                 checkH4.removeClass('ocultar')
-                checkH4.addClass('n6-recolhido')
+                checkH4.addClass('n4-recolhido')
             }
             if (checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){
                 _el.nextUntil(_filtrarH1).addClass('ocultar')
@@ -230,13 +230,13 @@ const topicosDyn = { // *
             if (checkH3.is(_filtrarH3)){
                 _el.nextUntil(_filtrarH3).removeClass('ocultar')
                 checkH3.removeClass('ocultar')
-                checkH3.addClass('n6-recolhido')
+                checkH3.addClass('n3-recolhido')
             }
             else
             if (checkH4.is(_filtrarH4)){
                 _el.nextUntil(_filtrarH4).removeClass('ocultar')
                 checkH4.removeClass('ocultar')
-                checkH4.addClass('n6-recolhido')
+                checkH4.addClass('n4-recolhido')
             }
             else
             if (checkH5.is(_filtrarH5)){
@@ -254,7 +254,7 @@ const topicosDyn = { // *
     },
     tratarH3: function xn2(
         _el, // * el clicado
-        _xn2, // * tag principal a tratada
+        _xn3, // * tag principal a tratada
         _filtrarH1,
         _filtrarH2,
         _filtrarH3,
@@ -264,9 +264,9 @@ const topicosDyn = { // *
     ) {
         let recolhido = _el.hasClass('n2-recolhido')
 
-        if (!recolhido) {
-            _el.addClass('n2-recolhido')
-            let todosElsEntre = _el.nextUntil(_xn2)
+        if (!recolhido) { // * #RECOLHER-H3
+            _el.addClass('n3-recolhido')
+            let todosElsEntre = _el.nextUntil(_xn3)
             checkH1 = todosElsEntre.filter(_filtrarH1)
             checkH2 = todosElsEntre.filter(_filtrarH2)
             checkH3 = todosElsEntre.filter(_filtrarH3)
@@ -275,19 +275,38 @@ const topicosDyn = { // *
             checkH6 = todosElsEntre.filter(_filtrarH6)
 
 
-            if (!checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
-                _el.nextUntil(_xn2).addClass('ocultar')
+             // → TRATAR todos els entre _el e a próxima xn3
+            // if (!checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){
+            //     _el.nextUntil(_filtrarH2).addClass('ocultar')
+            //     checkH4.removeClass('ocultar')
+            //     checkH4.addClass('n4-recolhido')
+            // }
+            if (!checkH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                _el.nextUntil(_xn3).addClass('ocultar')
             } else
-            if (checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+            if (checkH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
                 _el.nextUntil(_filtrarH1).addClass('ocultar')
-            } else // → TRATAR todos els entre _el e a próxima xn2
-            if (!checkH1.is(_filtrarH1) && checkH3.is(_filtrarH3)){
-                _el.nextUntil(_filtrarH2).addClass('ocultar')
-                checkH3.removeClass('ocultar')
-                checkH3.addClass('n6-recolhido')
+            }else // → TRATAR todos els entre _el e a próxima xn3
+            if (!checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){
+                _el.nextUntil(_filtrarH3).addClass('ocultar')
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('n4-recolhido')
             }
+            if (!checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){
+                _el.nextUntil(_filtrarH3).addClass('ocultar')
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('n5-recolhido')
+            }
+            if (!checkH1.is(_filtrarH1) && checkH6.is(_filtrarH6)){
+                console.log('Testando aqui')
+                _el.nextUntil(_filtrarH3).addClass('ocultar')
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('n6-recolhido')
+            }
+
+
         } else
-        if(recolhido){// * #EXPANDIR-H2
+        if(recolhido){// * #EXPANDIR-H3
             _el.removeClass('n2-recolhido')
             let todosElsEntre = _el.nextUntil(_xn2)
                 checkH1 = todosElsEntre.filter(_filtrarH1),
