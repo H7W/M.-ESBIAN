@@ -268,7 +268,7 @@ body {
             display: grid;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-            > h1.xT1 {
+            > h1.xn1 {
                 margin: 0.85rem 0rem 0.95rem 0rem !important;
                 font-size: 2rem;
                 line-height: 2.0rem;
@@ -277,7 +277,7 @@ body {
                 font-family: opensanstitle, helvetica, arial, sans-serif;
                 word-break: break-all;
             }
-            > h2.xT2 {
+            > h2.xn2 {
                 // color: #0078d7;
                 margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
                 font-size: 1.4rem;
@@ -287,7 +287,7 @@ body {
                 font-family: opensanstitle, helvetica, arial, sans-serif;
                 word-break: break-all;
             }
-            > h3.xT3 {
+            > h3.xn3 {
                 // color: #f7630c;
                 margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
                 font-size: 1.2rem;
@@ -297,7 +297,7 @@ body {
                 font-family: opensanstitle, helvetica, arial, sans-serif;
                 word-break: break-all;
             }
-            > h4.xT5, h5.xT5{
+            > h4.xn5, h5.xn5{
                 // color: #f7630c;
                 margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
                 font-size: 1.2rem;
@@ -336,7 +336,7 @@ body {
         z-index: 99;
     }
 
-    .xT1 {
+    .xn1 {
         position: relative;
         // color: coral;
         &::after {
@@ -351,7 +351,7 @@ body {
             pointer-events: all;
         }
     }
-    .H1-recolhido{
+    .n1-recolhido{
         // color: red !important;
 
         &::after {
@@ -366,7 +366,7 @@ body {
             pointer-events: all;
         }
     }
-    .xT2 {
+    .xn2 {
         position: relative;
         // color: coral;
         &::before {
@@ -381,7 +381,7 @@ body {
             // pointer-events: all;
         }
     }
-    .H2-recolhido {
+    .n2-recolhido {
         // color: blue;
         &::before {
             content: "\271A ";
@@ -396,7 +396,7 @@ body {
             pointer-events: all;
         }
     }
-    .xT3 {
+    .xn3 {
         position: relative;
         // color: coral;
         &::before {
@@ -411,7 +411,7 @@ body {
             // pointer-events: all;
         }
     }
-    .H3-recolhido {
+    .n3-recolhido {
         // color: blue;
         &::before {
             content: "\271A ";
@@ -426,7 +426,7 @@ body {
             pointer-events: all;
         }
     }
-    .xT4 {
+    .xn4 {
         position: relative;
         // color: coral;
         &::before {
@@ -441,7 +441,7 @@ body {
             // pointer-events: all;
         }
     }
-    .H4-recolhido {
+    .n4-recolhido {
         // color: blue;
         &::before {
             content: "\271A ";
@@ -456,7 +456,7 @@ body {
             pointer-events: all;
         }
     }
-    .xT5 {
+    .xn5 {
         position: relative;
         // color: coral;
         &::before {
@@ -473,7 +473,7 @@ body {
             // pointer-events: all;
         }
     }
-    .H5-recolhido {
+    .n5-recolhido {
         // color: blue;
         &::before {
             content: "\271A ";
@@ -487,7 +487,7 @@ body {
             pointer-events: all;
         }
     }
-    .xT6 {
+    .xn6 {
         position: relative;
         color: red;
         &::before {
@@ -501,7 +501,7 @@ body {
             // pointer-events: all;
         }
     }
-    .H6-recolhido {
+    .n6-recolhido {
         color: green;
         &::before {
             content: "\271A ";
@@ -515,5 +515,4 @@ body {
             pointer-events: all;
         }
     }
-
 }

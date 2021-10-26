@@ -251,7 +251,7 @@ body > .paginas > main {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body > .paginas > main > h1.xT1 {
+body > .paginas > main > h1.xn1 {
   margin: 0.85rem 0rem 0.95rem 0rem !important;
   font-size: 2rem;
   line-height: 2.0rem;
@@ -261,7 +261,7 @@ body > .paginas > main > h1.xT1 {
   word-break: break-all;
 }
 
-body > .paginas > main > h2.xT2 {
+body > .paginas > main > h2.xn2 {
   margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
   font-size: 1.4rem;
   line-height: 1.4rem;
@@ -271,7 +271,7 @@ body > .paginas > main > h2.xT2 {
   word-break: break-all;
 }
 
-body > .paginas > main > h3.xT3 {
+body > .paginas > main > h3.xn3 {
   margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
   font-size: 1.2rem;
   line-height: 1.1rem;
@@ -281,7 +281,7 @@ body > .paginas > main > h3.xT3 {
   word-break: break-all;
 }
 
-body > .paginas > main > h4.xT5, body > .paginas > main h5.xT5 {
+body > .paginas > main > h4.xn5, body > .paginas > main h5.xn5 {
   margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
   font-size: 1.2rem;
   line-height: 0.9rem;
@@ -317,11 +317,11 @@ body > footer {
   z-index: 99;
 }
 
-body .xT1 {
+body .xn1 {
   position: relative;
 }
 
-body .xT1::after {
+body .xn1::after {
   content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
@@ -333,7 +333,7 @@ body .xT1::after {
   pointer-events: all;
 }
 
-body .H1-recolhido::after {
+body .n1-recolhido::after {
   content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
@@ -344,11 +344,11 @@ body .H1-recolhido::after {
   pointer-events: all;
 }
 
-body .xT2 {
+body .xn2 {
   position: relative;
 }
 
-body .xT2::before {
+body .xn2::before {
   content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
@@ -358,7 +358,7 @@ body .xT2::before {
   cursor: pointer;
 }
 
-body .H2-recolhido::before {
+body .n2-recolhido::before {
   content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
@@ -369,11 +369,11 @@ body .H2-recolhido::before {
   pointer-events: all;
 }
 
-body .xT3 {
+body .xn3 {
   position: relative;
 }
 
-body .xT3::before {
+body .xn3::before {
   content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
@@ -383,7 +383,7 @@ body .xT3::before {
   cursor: pointer;
 }
 
-body .H3-recolhido::before {
+body .n3-recolhido::before {
   content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
@@ -394,11 +394,11 @@ body .H3-recolhido::before {
   pointer-events: all;
 }
 
-body .xT4 {
+body .xn4 {
   position: relative;
 }
 
-body .xT4::before {
+body .xn4::before {
   content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
@@ -408,7 +408,7 @@ body .xT4::before {
   cursor: pointer;
 }
 
-body .H4-recolhido::before {
+body .n4-recolhido::before {
   content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
@@ -419,11 +419,11 @@ body .H4-recolhido::before {
   pointer-events: all;
 }
 
-body .xT5 {
+body .xn5 {
   position: relative;
 }
 
-body .xT5::before {
+body .xn5::before {
   content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
@@ -435,7 +435,7 @@ body .xT5::before {
   cursor: pointer;
 }
 
-body .H5-recolhido::before {
+body .n5-recolhido::before {
   content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
@@ -446,12 +446,12 @@ body .H5-recolhido::before {
   pointer-events: all;
 }
 
-body .xT6 {
+body .xn6 {
   position: relative;
   color: red;
 }
 
-body .xT6::before {
+body .xn6::before {
   content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
@@ -461,11 +461,11 @@ body .xT6::before {
   cursor: pointer;
 }
 
-body .H6-recolhido {
+body .n6-recolhido {
   color: green;
 }
 
-body .H6-recolhido::before {
+body .n6-recolhido::before {
   content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
