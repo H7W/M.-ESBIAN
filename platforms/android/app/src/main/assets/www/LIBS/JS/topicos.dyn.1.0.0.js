@@ -32,6 +32,11 @@ const topicosDyn = { // *
             'touchstart',
             'touchend'
         )
+        topicosDyn.timignClick(
+            $('.leitor > h3'),
+            'touchstart',
+            'touchend'
+        )
     },
     timignClick: function setTimeClick(
         _el,
@@ -53,6 +58,11 @@ const topicosDyn = { // *
                     case 'H2':
                         topicosDyn.tratarH2($this, '.xT2', '.xT1', '.xT2', '.xT3', '.xT4', '.xT5', '.xT6')
                         // $this.toggleClass('dest_xTH2')
+                        break;
+                    case 'H3':
+                        topicosDyn.tratarH3($this, '.xT3', '.xT1', '.xT2','.xT3', '.xT4', '.xT5', '.xT6')
+                        // $this.toggleClass('dest_xTH2')
+                        break;
                     default:
                         break;
                 }
@@ -128,7 +138,7 @@ const topicosDyn = { // *
         _filtrarH3,
         _filtrarH4,
         _filtrarH5,
-        _filtrarH6,
+        _filtrarH6
     ) {
         let recolhido = _el.hasClass('H2-recolhido')
 
@@ -140,44 +150,229 @@ const topicosDyn = { // *
             checkH3 = todosElsEntre.filter(_filtrarH3)
             checkH4 = todosElsEntre.filter(_filtrarH4)
             checkH5 = todosElsEntre.filter(_filtrarH5)
+            checkH6 = todosElsEntre.filter(_filtrarH6)
 
 
-            if (!checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5)){ // * todas negativas para um nivél abaixo
-                // console.log( //* se "false" então confirmou a afirmação
-                //     '#RECOLHER: check NÃO TEM nenhuma H3: '+checkH3.is(checkH3) + '\n'+
-                //     '#RECOLHER: check NÃO TEM nenhuma H4: '+checkH4.is(checkH4) + '\n'+
-                //     '#RECOLHER: check NÃO TEM nenhuma H5: '+checkH5.is(checkH5)
-                // )
+            if (!checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                console.log(
+                    '#RECOLHER: check NÃO TEM nenhuma H1: '+checkH3.is(checkH1) + '\n'+
+                    '#RECOLHER: check NÃO TEM nenhuma H3: '+checkH3.is(checkH3) + '\n'+
+                    '#RECOLHER: check NÃO TEM nenhuma H4: '+checkH4.is(checkH4) + '\n'+
+                    '#RECOLHER: check NÃO TEM nenhuma H5: '+checkH4.is(checkH5) + '\n'+
+                    '#RECOLHER: check NÃO TEM nenhuma H6: '+checkH5.is(checkH5)
+                )
                 _el.nextUntil(_xT2).addClass('ocultar')
             } else
-            if (checkH1.is(_filtrarH1)){
-                // console.log('#RECOLHER: check TEM uma ou mais H1: '+checkH1.is(checkH1)) //* se "true" então não confirmou a afirmação
+            if (checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                console.log(
+                    '#RECOLHER: check NÃO TEM nenhuma H3: '+checkH3.is(checkH3) + '\n'+
+                    '#RECOLHER: check NÃO TEM nenhuma H4: '+checkH4.is(checkH4) + '\n'+
+                    '#RECOLHER: check NÃO TEM nenhuma H5: '+checkH4.is(checkH4) + '\n'+
+                    '#RECOLHER: check NÃO TEM nenhuma H6: '+checkH5.is(checkH5)
+                )
                 _el.nextUntil(_filtrarH1).addClass('ocultar')
-            } else
-            if (checkH3.is(_filtrarH3)){
-                // console.log('#RECOLHER: check TEM uma ou mais H3: '+checkH3.is(checkH3)) //* se "true" então não confirmou a afirmação
-                _el.nextUntil(_xT2).addClass('ocultar')
+            } else // → TRATAR todos els entre _el e a próxima xT2
+            if (!checkH1.is(_filtrarH1) && checkH3.is(_filtrarH3)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT2, neste caso, xT1(r=>false) E xT3(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT3:' +checkH3.is(_filtrarH3)
+                )
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
                 checkH3.removeClass('ocultar')
                 checkH3.addClass('H3-recolhido')
             } else
-            if(checkH4.is(_filtrarH4)){
-                // console.log('#RECOLHER: check TEM uma ou mais H4: '+checkH4.is(checkH4)) //* se "true" então não confirmou a afirmação
-                _el.nextUntil(_xT2).addClass('ocultar')
+            if (!checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT2, neste caso, xT1(r=>false) E xT4(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT4:' +checkH4.is(_filtrarH4)
+                )
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
                 checkH4.removeClass('ocultar')
                 checkH4.addClass('H4-recolhido')
             } else
-            if(checkH5.is(_filtrarH5)){
-                // console.log('#RECOLHER: check TEM uma ou mais H5: '+checkH5.is(checkH5)) //* se "true" então não confirmou a afirmação
-                _el.nextUntil(_xT2).addClass('ocultar')
+            if (!checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT2, neste caso, xT1(r=>false) E xT5(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT4:' +checkH5.is(_filtrarH5)
+                )
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
                 checkH5.removeClass('ocultar')
                 checkH5.addClass('H5-recolhido')
+                console.log('Recolher: '+checkH1.is(_filtrarH1))
+
             } else
-            if(checkH6.is(_filtrarH6)){
-                // console.log('#RECOLHER: check TEM uma ou mais H6: '+checkH6.is(checkH6)) //* se "true" então não confirmou a afirmação
-                _el.nextUntil(_xT2).addClass('ocultar')
+            if (!checkH1.is(_filtrarH1) && checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT2, neste caso, xT1(r=>false) E xT6(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT6:' +checkH6.is(_filtrarH6)
+                )
+                console.log('Recolher: '+checkH1.is(_filtrarH1))
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
                 checkH6.removeClass('ocultar')
                 checkH6.addClass('H6-recolhido')
             }
+
+            // → TRATAR todos els entre _el e a próxima xT1
+            if (checkH1.is(_filtrarH1) && checkH3.is(_filtrarH3)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT1, neste caso, xT1(r=>true) E xT3(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT3:' +checkH3.is(_filtrarH3)
+                )
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH3.removeClass('ocultar')
+                checkH3.addClass('H3-recolhido')
+            }
+            if (checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT1, neste caso, xT1(r=>true) E xT4(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT4:' +checkH4.is(_filtrarH4)
+                )
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('H4-recolhido')
+            }
+            if (checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT1, neste caso, xT1(r=>true) E xT5(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT5:' +checkH5.is(_filtrarH5)
+                )
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('H5-recolhido')
+
+            }
+            if (checkH1.is(_filtrarH1) && checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT1, neste caso, xT1(r=>true) E xT6(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT6:' +checkH5.is(_filtrarH6)
+                )
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('H6-recolhido')
+            }
+
+        } else
+        if(recolhido){// * #EXPANDIR-H2
+
+            _el.removeClass('H2-recolhido')
+            // console.log(_el.removeClass('H2-recolhido'))
+            let todosElsEntre = _el.nextUntil(_xT2) // * positivas = obter todos os els entre as 'xT2' e a próxima 'xT2'
+                checkH1 = todosElsEntre.filter(_filtrarH1),
+                checkH2 = todosElsEntre.filter(_filtrarH2),
+                checkH3 = todosElsEntre.filter(_filtrarH3),
+                checkH4 = todosElsEntre.filter(_filtrarH4),
+                checkH5 = todosElsEntre.filter(_filtrarH5),
+                checkH6 = todosElsEntre.filter(_filtrarH6)
+
+            // console.log('Expandir: '+checkH1.is(_filtrarH1))
+
+            if (!checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                // console.log(
+                //     '#EXPANDIR: check NÃO TEM nenhuma H1: '+checkH3.is(checkH1) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H3: '+checkH3.is(checkH3) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H4: '+checkH4.is(checkH4) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H5: '+checkH4.is(checkH5) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H6: '+checkH5.is(checkH5)
+                // )
+                _el.nextUntil(_xT2).removeClass('ocultar')
+            }
+            if (checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                // console.log(
+                //     '#EXPANDIR: check NÃO TEM nenhuma H3: '+checkH3.is(checkH3) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H4: '+checkH4.is(checkH4) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H5: '+checkH4.is(checkH4) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H6: '+checkH5.is(checkH5)
+                // )
+                _el.nextUntil(_filtrarH1).removeClass('ocultar')
+            }
+            if (checkH3.is(_filtrarH3)){
+                _el.nextUntil(_filtrarH3).removeClass('ocultar')
+                checkH3.removeClass('ocultar')
+                checkH3.addClass('H3-recolhido')
+            }
+            else
+            if (checkH4.is(_filtrarH4)){
+                _el.nextUntil(_filtrarH4).removeClass('ocultar')
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('H4-recolhido')
+            }
+            else
+            if (checkH5.is(_filtrarH5)){
+                _el.nextUntil(_filtrarH5).removeClass('ocultar')
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('H5-recolhido')
+            }
+            else
+            if (checkH6.is(_filtrarH6)){
+                _el.nextUntil(_filtrarH6).removeClass('ocultar')
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('H6-recolhido')
+            }
+
+
+        }
+    },
+    tratarH3: function xT3(
+        _el, // * el clicado
+        _xT3, // * tag principal a tratada
+        _filtrarH1,
+        _filtrarH2,
+        _filtrarH3,
+        _filtrarH4,
+        _filtrarH5,
+        _filtrarH6
+    ) {
+        let recolhido = _el.hasClass('H2-recolhido')
+
+        if (!recolhido) {//* #RECOLHER-H2-INVERTIDO se não tiver a class ''H2-recolhido' então...
+            _el.addClass('H3-recolhido')
+            let todosElsEntre = _el.nextUntil(_xT3) // * obter todos os els entre as 'xT2'
+            checkH1 = todosElsEntre.filter(_filtrarH1)
+            checkH2 = todosElsEntre.filter(_filtrarH2)
+            checkH3 = todosElsEntre.filter(_filtrarH3)
+            checkH4 = todosElsEntre.filter(_filtrarH4)
+            checkH5 = todosElsEntre.filter(_filtrarH5)
+            checkH6 = todosElsEntre.filter(_filtrarH6)
+
+            checkH5.is(_filtrarH5)
+            checkH6.is(_filtrarH6)
+
+            if (!checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5)){ // * todas negativas para um nivél abaixo
+                console.log( //* se "false" então confirmou a afirmação
+                    '#RECOLHER: check NÃO TEM nenhuma H4: '+checkH4.is(checkH4) + '\n'+
+                    '#RECOLHER: check NÃO TEM nenhuma H5: '+checkH5.is(checkH5)
+                )
+                _el.nextUntil(_xT3).addClass('ocultar')
+                // checkH3.addClass('H3-recolhido')
+            }
+            else
+            if (checkH4.is(_filtrarH4)){
+                console.log('#RECOLHER: check TEM uma ou mais H4: '+checkH4.is(checkH4)) //* se "true" então não confirmou a afirmação
+                _el.nextUntil(_xT3).addClass('ocultar')
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('H4-recolhido')
+            } else
+            if (checkH5.is(_filtrarH5)){
+                console.log('#RECOLHER: check TEM uma ou mais H5: '+checkH5.is(checkH5)) //* se "true" então não confirmou a afirmação
+                _el.nextUntil(_xT3).addClass('ocultar')
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('H5-recolhido')
+            } else
+            if (checkH6.is(_filtrarH6)){
+                console.log('#RECOLHER: check TEM uma ou mais H5: '+checkH6.is(checkH6)) //* se "true" então não confirmou a afirmação
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('H6-recolhido')
+            }
+
         } else {// * #EXPANDIR-H2
             let todosElsEntre = _el.nextUntil(_xT2) // * obter todos os els entre as 'xT2'
             checkH1 = todosElsEntre.filter(_filtrarH1)
@@ -186,56 +381,7 @@ const topicosDyn = { // *
             checkH4 = todosElsEntre.filter(_filtrarH4)
             checkH5 = todosElsEntre.filter(_filtrarH5)
             checkH6 = todosElsEntre.filter(_filtrarH6)
-            // console.log(checkH1)
-            // if (!checkH3.is('H3')){ // * todas negativas para um nivél abaixo
-            //     console.log('#EXPANDIR: check NÃO tem um ou mais H3: '+checkH3.is(checkH3))
-            //     _el.nextUntil(_xT2).removeClass('ocultar')
-            // }
-            if (!checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
-                console.log( //* se "false" então confirmou a afirmação
-                    '#RECOLHER: check NÃO TEM nenhuma H3: '+checkH3.is(checkH3) + '\n'+
-                    '#RECOLHER: check NÃO TEM nenhuma H4: '+checkH4.is(checkH4) + '\n'+
-                    '#RECOLHER: check NÃO TEM nenhuma H5: '+checkH5.is(checkH5) + '\n'+
-                    '#RECOLHER: check NÃO TEM nenhuma H6: '+checkH6.is(checkH6)
-                )
-                _el.removeClass('H2-recolhido')
-                _el.nextUntil(_xT2).removeClass('ocultar')
-            }
-            if (checkH1.is(_filtrarH1)){
-                console.log('#EXPANDIR: check tem um ou mais H1: '+checkH1.is(_filtrarH1))
-                _el.nextUntil(_filtrarH1).removeClass('ocultar')
-                _el.removeClass('H2-recolhido')
-                checkH1.removeClass('ocultar')
-                checkH1.addClass('H3-recolhido')
-            } else
-            if (checkH3.is(_filtrarH3)){
-                console.log('#EXPANDIR: check tem um ou mais H3: '+checkH3.is(_filtrarH3))
-                _el.nextUntil(_filtrarH3).removeClass('ocultar')
-                _el.removeClass('H2-recolhido')
-                checkH3.removeClass('ocultar')
-                checkH3.addClass('H3-recolhido')
-            } else
-            if(checkH4.is(_filtrarH4)) {
-                console.log('#EXPANDIR: check tem um ou mais H4: '+checkH4.is(checkH4))
-                _el.nextUntil(_filtrarH4).removeClass('ocultar')
-                _el.removeClass('H2-recolhido')
-                checkH4.removeClass('ocultar')
-                checkH4.addClass('H4-recolhido')
-            } else
-            if(checkH5.is(_filtrarH5)) {
-                console.log('#EXPANDIR: check tem um ou mais H5: '+checkH5.is(checkH5))
-                _el.nextUntil(_filtrarH5).removeClass('ocultar')
-                _el.removeClass('H2-recolhido')
-                checkH5.removeClass('ocultar')
-                checkH5.addClass('H5-recolhido')
-            } else
-            if(checkH6.is(_filtrarH6)) {
-                console.log('#EXPANDIR: check tem um ou mais H6: '+checkH6.is(checkH6))
-                _el.nextUntil(_filtrarH6).removeClass('ocultar')
-                _el.removeClass('H2-recolhido')
-                checkH6.removeClass('ocultar')
-                checkH6.addClass('H5-recolhido')
-            }
+
         }
     }
 }

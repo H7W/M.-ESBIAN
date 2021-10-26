@@ -152,7 +152,7 @@ const topicosDyn = { // *
             checkH5 = todosElsEntre.filter(_filtrarH5)
             checkH6 = todosElsEntre.filter(_filtrarH6)
 
-            // console.log(checkH1.is(_filtrarH1))
+
             if (!checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
                 console.log(
                     '#RECOLHER: check NÃO TEM nenhuma H1: '+checkH3.is(checkH1) + '\n'+
@@ -162,7 +162,7 @@ const topicosDyn = { // *
                     '#RECOLHER: check NÃO TEM nenhuma H6: '+checkH5.is(checkH5)
                 )
                 _el.nextUntil(_xT2).addClass('ocultar')
-            }
+            } else
             if (checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
                 console.log(
                     '#RECOLHER: check NÃO TEM nenhuma H3: '+checkH3.is(checkH3) + '\n'+
@@ -171,30 +171,90 @@ const topicosDyn = { // *
                     '#RECOLHER: check NÃO TEM nenhuma H6: '+checkH5.is(checkH5)
                 )
                 _el.nextUntil(_filtrarH1).addClass('ocultar')
-            }
-            if (checkH3.is(_filtrarH3)){
-                console.log('#RECOLHER: check TEM uma ou mais H3: '+checkH3.is(checkH3)) //* se "true" então não confirmou a afirmação
-                _el.nextUntil(_xT2).addClass('ocultar')
+            } else // → TRATAR todos els entre _el e a próxima xT2
+            if (!checkH1.is(_filtrarH1) && checkH3.is(_filtrarH3)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT2, neste caso, xT1(r=>false) E xT3(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT3:' +checkH3.is(_filtrarH3)
+                )
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
                 checkH3.removeClass('ocultar')
                 checkH3.addClass('H3-recolhido')
             } else
-            if(checkH4.is(_filtrarH4)){
-                console.log('#RECOLHER: check TEM uma ou mais H4: '+checkH4.is(checkH4)) //* se "true" então não confirmou a afirmação
-                _el.nextUntil(_xT2).addClass('ocultar')
+            if (!checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT2, neste caso, xT1(r=>false) E xT4(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT4:' +checkH4.is(_filtrarH4)
+                )
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
                 checkH4.removeClass('ocultar')
                 checkH4.addClass('H4-recolhido')
             } else
-            if(checkH5.is(_filtrarH5)){
-                console.log('#RECOLHER: check TEM uma ou mais H5: '+checkH5.is(checkH5)) //* se "true" então não confirmou a afirmação
-                _el.nextUntil(_xT2).addClass('ocultar')
+            if (!checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT2, neste caso, xT1(r=>false) E xT5(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT4:' +checkH5.is(_filtrarH5)
+                )
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
                 checkH5.removeClass('ocultar')
                 checkH5.addClass('H5-recolhido')
+                console.log('Recolher: '+checkH1.is(_filtrarH1))
+
             } else
-            if(checkH6.is('.xT6')){
-                console.log('#RECOLHER: check TEM uma ou mais H6: '+checkH6.is('.xT6')) //* se "true" então não confirmou a afirmação
-                // console.log(checkH6)
-                // console.log(checkH6.is('.xT6'))
-                _el.nextUntil(_xT2).addClass('ocultar')
+            if (!checkH1.is(_filtrarH1) && checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT2, neste caso, xT1(r=>false) E xT6(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT6:' +checkH6.is(_filtrarH6)
+                )
+                console.log('Recolher: '+checkH1.is(_filtrarH1))
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('H6-recolhido')
+            }
+
+            // → TRATAR todos els entre _el e a próxima xT1
+            if (checkH1.is(_filtrarH1) && checkH3.is(_filtrarH3)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT1, neste caso, xT1(r=>true) E xT3(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT3:' +checkH3.is(_filtrarH3)
+                )
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH3.removeClass('ocultar')
+                checkH3.addClass('H3-recolhido')
+            }
+            if (checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT1, neste caso, xT1(r=>true) E xT4(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT4:' +checkH4.is(_filtrarH4)
+                )
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('H4-recolhido')
+            }
+            if (checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT1, neste caso, xT1(r=>true) E xT5(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT5:' +checkH5.is(_filtrarH5)
+                )
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('H5-recolhido')
+
+            }
+            if (checkH1.is(_filtrarH1) && checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                console.log('TRATAR todos els entre _el e a próxima xT1, neste caso, xT1(r=>true) E xT6(r=>true)')
+                console.log(
+                    'Recolher check xT1: '+checkH1.is(_filtrarH1)+'\n'+
+                    'Recolher check xT6:' +checkH5.is(_filtrarH6)
+                )
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
                 checkH6.removeClass('ocultar')
                 checkH6.addClass('H6-recolhido')
             }
@@ -203,82 +263,60 @@ const topicosDyn = { // *
         if(recolhido){// * #EXPANDIR-H2
 
             _el.removeClass('H2-recolhido')
-            console.log(_el.removeClass('H2-recolhido'))
+            // console.log(_el.removeClass('H2-recolhido'))
             let todosElsEntre = _el.nextUntil(_xT2) // * positivas = obter todos os els entre as 'xT2' e a próxima 'xT2'
                 checkH1 = todosElsEntre.filter(_filtrarH1),
                 checkH2 = todosElsEntre.filter(_filtrarH2),
                 checkH3 = todosElsEntre.filter(_filtrarH3),
                 checkH4 = todosElsEntre.filter(_filtrarH4),
                 checkH5 = todosElsEntre.filter(_filtrarH5),
-                checkH6 = todosElsEntre.filter(_filtrarH6),
-                allEntreThisH1 = _el.nextUntil(_filtrarH1), // * negativas = obter todos os els entre this.h2 e a próximo h1
-                xCheck3 = allEntreThisH1.filter(_filtrarH3)
-                xCheck4 = allEntreThisH1.filter(_filtrarH4)
-                xCheck5 = allEntreThisH1.filter(_filtrarH5)
-                xCheck6 = allEntreThisH1.filter(_filtrarH6)
+                checkH6 = todosElsEntre.filter(_filtrarH6)
 
-            //* TRATAR NEGATIVAS: → checar tem tag h1 e checar tem tag h6, entre as tags this.h2 e a próxima tag h1
-            if (checkH1.is(_filtrarH1) && xCheck6.is(_filtrarH6)){ // * se ambos são true então...
-                console.log('Tem uma ou mais H1: ' +checkH1.is(_filtrarH1))
-                console.log('xCheck6: ' +xCheck6.is(_filtrarH6))
-                _el.nextUntil(_filtrarH6).removeClass('ocultar') // * remove a class de todos os els entre this.h2 e a próxima tag h6
-                checkH6.removeClass('ocultar')                   // * remove a class ocultar das tag h6
-                checkH6.addClass('H6-recolhido')                 // * add a class H6-recolhido
-            }
-            else //* caso contrário => TRATAR NEGATIVAS: → checar tem tag h1 e checar tem tag h5, entre as tags this.h2 e a próxima tag h1
-            if (checkH1.is(_filtrarH1 ) && xCheck5.is(_filtrarH5)){
-                console.log('Tem uma ou mais H1: ' +checkH1.is(_filtrarH1))
-                console.log('xCheck5: ' +xCheck5.is(_filtrarH5))
+            // console.log('Expandir: '+checkH1.is(_filtrarH1))
 
-                _el.nextUntil(_filtrarH5).removeClass('ocultar')
-                checkH5.removeClass('ocultar')
-                checkH5.addClass('H5-recolhido')
+            if (!checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                // console.log(
+                //     '#EXPANDIR: check NÃO TEM nenhuma H1: '+checkH3.is(checkH1) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H3: '+checkH3.is(checkH3) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H4: '+checkH4.is(checkH4) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H5: '+checkH4.is(checkH5) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H6: '+checkH5.is(checkH5)
+                // )
+                _el.nextUntil(_xT2).removeClass('ocultar')
             }
-            else //* caso contrário => TRATAR NEGATIVAS: → checar tem tag h1 e checar tem tag h4, entre as tags this.h2 e a próxima tag h1
-            if (checkH1.is(_filtrarH1 ) && xCheck4.is(_filtrarH4)){
-                console.log('Tem uma ou mais H1: ' +checkH1.is(_filtrarH1))
-                console.log('xCheck4: ' +xCheck4.is(_filtrarH4))
-
-                _el.nextUntil(_filtrarH4).removeClass('ocultar')
-                checkH4.removeClass('ocultar')
-                checkH4.addClass('H4-recolhido')
+            if (checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                // console.log(
+                //     '#EXPANDIR: check NÃO TEM nenhuma H3: '+checkH3.is(checkH3) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H4: '+checkH4.is(checkH4) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H5: '+checkH4.is(checkH4) + '\n'+
+                //     '#EXPANDIR: check NÃO TEM nenhuma H6: '+checkH5.is(checkH5)
+                // )
+                _el.nextUntil(_filtrarH1).removeClass('ocultar')
             }
-            else //* caso contrário => TRATAR NEGATIVAS: → checar tem tag h1 e checar tem tag h3, entre as tags this.h2 e a próxima tag h1
-            if (checkH1.is(_filtrarH1 ) && xCheck3.is(_filtrarH3)){
-
-                _el.nextUntil(_filtrarH3).removeClass('ocultar')
-                checkH3.removeClass('ocultar')
-                checkH3.addClass('H3-recolhido')
-            }
-            else //* caso contrário =>  TRATAR positivas : → checar se tem tag h3, entre as tags this.h2 e a próxima tag h2
             if (checkH3.is(_filtrarH3)){
                 _el.nextUntil(_filtrarH3).removeClass('ocultar')
                 checkH3.removeClass('ocultar')
                 checkH3.addClass('H3-recolhido')
             }
-            else //* caso contrário =>  TRATAR positivas : → checar se tem tag h4, entre as tags this.h2 e a próxima tag h2
+            else
             if (checkH4.is(_filtrarH4)){
                 _el.nextUntil(_filtrarH4).removeClass('ocultar')
                 checkH4.removeClass('ocultar')
                 checkH4.addClass('H4-recolhido')
             }
-            else //* caso contrário =>  TRATAR positivas : → checar se tem tag h5, entre as tags this.h2 e a próxima tag h2
+            else
             if (checkH5.is(_filtrarH5)){
                 _el.nextUntil(_filtrarH5).removeClass('ocultar')
                 checkH5.removeClass('ocultar')
                 checkH5.addClass('H5-recolhido')
             }
-            else //* caso contrário =>  TRATAR positivas : → checar se tem tag h5, entre as tags this.h2 e a próxima tag h2
+            else
             if (checkH6.is(_filtrarH6)){
                 _el.nextUntil(_filtrarH6).removeClass('ocultar')
                 checkH6.removeClass('ocultar')
                 checkH6.addClass('H6-recolhido')
             }
-            else //* caso contrário =>  TRATAR NEUTRAS : → checar se tem não as tags h6, h5, h4, h3 entre as tags this.h2 e a próxima tag h2
-            if (!checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
-                console.log('TRATAR NEUTRAS : → checar se tem não as tags h6, h5, h4, h3 entre as tags this.h2 e a próxima tag h2')
-                _el.nextUntil(_filtrarH2).removeClass('ocultar')
-            }
+
 
         }
     },

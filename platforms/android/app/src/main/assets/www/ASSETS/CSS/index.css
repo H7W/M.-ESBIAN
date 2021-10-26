@@ -322,7 +322,7 @@ body .xT1 {
 }
 
 body .xT1::after {
-  content: "\268A";
+  content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
   color: #3d3b3b;
@@ -334,7 +334,7 @@ body .xT1::after {
 }
 
 body .H1-recolhido::after {
-  content: "\271A";
+  content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
   color: #555353;
@@ -349,18 +349,22 @@ body .xT2 {
 }
 
 body .xT2::before {
-  content: "\268A";
+  content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
   color: #3d3b3b;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
   cursor: pointer;
 }
 
 body .H2-recolhido::before {
-  content: "\271A";
+  content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
   color: #555353;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
   cursor: pointer;
   pointer-events: all;
 }
@@ -370,18 +374,22 @@ body .xT3 {
 }
 
 body .xT3::before {
-  content: "\268A";
+  content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
   color: #3d3b3b;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
   cursor: pointer;
 }
 
 body .H3-recolhido::before {
-  content: "\271A";
+  content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
   color: #555353;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
   cursor: pointer;
   pointer-events: all;
 }
@@ -391,18 +399,22 @@ body .xT4 {
 }
 
 body .xT4::before {
-  content: "\268A";
+  content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
   color: #3d3b3b;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
   cursor: pointer;
 }
 
 body .H4-recolhido::before {
-  content: "\271A";
+  content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
   color: #555353;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
   cursor: pointer;
   pointer-events: all;
 }
@@ -412,39 +424,54 @@ body .xT5 {
 }
 
 body .xT5::before {
-  content: "\268A";
+  content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
   color: #3d3b3b;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
   cursor: pointer;
 }
 
 body .H5-recolhido::before {
-  content: "\271A";
+  content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
   color: #555353;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
   cursor: pointer;
   pointer-events: all;
 }
 
 body .xT6 {
   position: relative;
+  color: red;
 }
 
 body .xT6::before {
-  content: "\268A";
+  content: "\268A ";
   font-size: 0.9rem !important;
   font-weight: 100;
   color: #3d3b3b;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
   cursor: pointer;
 }
 
+body .H6-recolhido {
+  color: green;
+}
+
 body .H6-recolhido::before {
-  content: "\271A";
+  content: "\271A ";
   font-weight: 100;
   font-size: 0.9rem !important;
   color: #555353;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
   cursor: pointer;
   pointer-events: all;
 }
