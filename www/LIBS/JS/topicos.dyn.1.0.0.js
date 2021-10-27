@@ -163,7 +163,7 @@ const topicosDyn = { // *
             checkH6 = todosElsEntre.filter(_filtrarH6)
 
 
-            if (!checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+            if (!checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
                 _el.nextUntil(_xn2).addClass('ocultar')
             } else
             if (checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
@@ -266,44 +266,71 @@ const topicosDyn = { // *
 
         if (!recolhido) { // * #RECOLHER-H3
             _el.addClass('n3-recolhido')
-            let todosElsEntre = _el.nextUntil(_xn3)
-            checkH1 = todosElsEntre.filter(_filtrarH1)
-            checkH2 = todosElsEntre.filter(_filtrarH2)
-            checkH3 = todosElsEntre.filter(_filtrarH3)
-            checkH4 = todosElsEntre.filter(_filtrarH4)
-            checkH5 = todosElsEntre.filter(_filtrarH5)
+            let todosElsEntre = _el.nextUntil(_xn3),
+            checkH1 = todosElsEntre.filter(_filtrarH1),
+            checkH2 = todosElsEntre.filter(_filtrarH3),
+            checkH3 = todosElsEntre.filter(_filtrarH3),
+            checkH4 = todosElsEntre.filter(_filtrarH4),
+            checkH5 = todosElsEntre.filter(_filtrarH5),
             checkH6 = todosElsEntre.filter(_filtrarH6)
 
+            let nlsTodosElsEntre = _el.nextUntil(_filtrarH1),
+            nlsCheckH1 = nlsTodosElsEntre.filter(_filtrarH1),
+            nlsCheckH2 = nlsTodosElsEntre.filter(_filtrarH2),
+            nlsCheckH3 = nlsTodosElsEntre.filter(_filtrarH3)
 
-             // → TRATAR todos els entre _el e a próxima xn3
-            // if (!checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){
-            //     _el.nextUntil(_filtrarH2).addClass('ocultar')
-            //     checkH4.removeClass('ocultar')
-            //     checkH4.addClass('n4-recolhido')
-            // }
-            if (!checkH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+            // console.log(todosElsEntre.filter(_filtrarH2))
+            console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
+            console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+            console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            console.log('checkH3 estado: '+ checkH3.is(_filtrarH3))
+            // console.log('checkH4 estado: '+ checkH4.is(_filtrarH4))
+            // console.log('checkH5 estado: '+ checkH5.is(_filtrarH5))
+            // console.log('checkH6 estado: '+ checkH6.is(_filtrarH6))
+
+            if (!nlsCheckH1.is(_filtrarH1) && nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) ){
+                console.log('Testando aqui A1');
                 _el.nextUntil(_xn3).addClass('ocultar')
+                console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             } else
-            if (checkH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+            if (!nlsCheckH1.is(_filtrarH1) && !nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) ){
+                console.log('Testando aqui A1');
+                _el.nextUntil(_xn3).addClass('ocultar')
+                console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            }
+            if (!nlsCheckH1.is(_filtrarH1) && !nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) ){
+                console.log('Testando aqui B1');
                 _el.nextUntil(_filtrarH1).addClass('ocultar')
-            }else // → TRATAR todos els entre _el e a próxima xn3
-            if (!checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){
-                _el.nextUntil(_filtrarH3).addClass('ocultar')
-                checkH4.removeClass('ocultar')
-                checkH4.addClass('n4-recolhido')
+                console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             }
-            if (!checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){
-                _el.nextUntil(_filtrarH3).addClass('ocultar')
-                checkH5.removeClass('ocultar')
-                checkH5.addClass('n5-recolhido')
+            else
+            if (!nlsCheckH1.is(_filtrarH1) && nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) ){
+                console.log('Testando aqui C1');
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
+                console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             }
-            if (!checkH1.is(_filtrarH1) && checkH6.is(_filtrarH6)){
-                console.log('Testando aqui')
-                _el.nextUntil(_filtrarH3).addClass('ocultar')
-                checkH6.removeClass('ocultar')
-                checkH6.addClass('n6-recolhido')
-            }
+            // else
+            // if (!nlsCheckH1.is(_filtrarH1) && !nlsCheckH2.is(_filtrarH2) && !checkH3.is(_filtrarH3)){
+            //     console.log('Testando aqui B1');
+            //     // console.log(nlsCheckH3.is(_filtrarH3));
+            //     _el.nextUntil(_filtrarH3).addClass('ocultar')
+            //     console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
+            //     console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+            //     console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            // }
+            // if (!nlsCheckH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+            //     // _el.nextUntil(_xn3).addClass('ocultar')
+            // }
 
+            // → TRATAR todos els entre _el e a próxima xn3
 
         } else
         if(recolhido){// * #EXPANDIR-H3
@@ -315,6 +342,14 @@ const topicosDyn = { // *
                 checkH4 = todosElsEntre.filter(_filtrarH4),
                 checkH5 = todosElsEntre.filter(_filtrarH5),
                 checkH6 = todosElsEntre.filter(_filtrarH6)
+
+
+            if (!checkH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+                _el.nextUntil(_xn3).removeClass('ocultar')
+            }
+            if (checkH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+                _el.nextUntil(_filtrarH1).removeClass('ocultar')
+            }
 
         }
     }
