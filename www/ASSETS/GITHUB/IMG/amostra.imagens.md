@@ -1,0 +1,1 @@
+<!-- * amostra de imagens para futuros template -->
