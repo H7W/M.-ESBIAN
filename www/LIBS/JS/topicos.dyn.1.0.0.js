@@ -266,46 +266,22 @@ const topicosDyn = { // *
 
         if (!recolhido) { // * #RECOLHER-H3
             _el.addClass('n3-recolhido')
-            let todosElsEntre = _el.nextUntil(_xn3),
-            checkH1 = todosElsEntre.filter(_filtrarH1),
-            checkH2 = todosElsEntre.filter(_filtrarH3),
-            checkH3 = todosElsEntre.filter(_filtrarH3),
-            checkH4 = todosElsEntre.filter(_filtrarH4),
-            checkH5 = todosElsEntre.filter(_filtrarH5),
-            checkH6 = todosElsEntre.filter(_filtrarH6)
-
+            // ! variáveis tratar classes de niveis superiores
             let nlsTodosElsEntre = _el.nextUntil(_filtrarH1),
             nlsCheckH2 = nlsTodosElsEntre.filter(_filtrarH2),
             nlsCheckH3 = nlsTodosElsEntre.filter(_filtrarH3)
 
-            // console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
-            console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
-            console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            // ! variáveis tratar classes de niveis inferiores
+            let todosElsEntre = _el.nextUntil(_xn3),
+            checkH1 = todosElsEntre.filter(_filtrarH1),
+            // checkH2 = todosElsEntre.filter(_filtrarH3),
+            // checkH3 = todosElsEntre.filter(_filtrarH3),
+            checkH4 = todosElsEntre.filter(_filtrarH4),
+            checkH5 = todosElsEntre.filter(_filtrarH5),
+            checkH6 = todosElsEntre.filter(_filtrarH6)
+
 
             // ! tratar classes de niveis superiores
-            /* linha de raciocínio => nlsTodosElsEntre(elecinar todos os els entre esse el e o próximo xn1)
-                * tratar classes de niveis superiores
-                * ---
-                * tratando caso A
-                    * se nlsCheckH2 é TRUE: significa que tem um ou mais xn2 &&
-                    * se nlsCheckH3 é TRUE: significa que tem um ou mais xn3
-                    * ou seja, recolher todos os els entre esse el e o próximo _xn3
-                * ---
-                * tratando caso A1 (este caso é uma variante do caso A)
-                    * se nlsCheckH2 é FALSO: significa que tem um ou mais xn2 &&
-                    * se nlsCheckH3 é TRUE: significa que tem um ou mais xn3
-                    * ou seja, recolher todos os els entre esse el e o próximo _xn3
-                * ---
-                * tratando caso B
-                    * se nlsCheckH2 é FALSO: significa que NÃO TEM um ou mais xn2 &&
-                    * se nlsCheckH3 é FALSO: significa que NÃO TEM um ou mais xn3
-                    * ou seja, recolher todos os els entre esse el e o próximo xn1
-                * ---
-                * tratando caso B1
-                    * se nlsCheckH2 é TRUE: significa que tem um ou mais xn2 &&
-                    * se nlsCheckH3 é FALSE: significa que NÃO TEM um ou mais xn3
-                   * ou seja, recolher todos os els entre esse el e o próximo xn2
-            */
             if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) ){
                 console.log('tratando caso A');
 
@@ -332,20 +308,24 @@ const topicosDyn = { // *
                 console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
                 console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             }
-            // else
-            // if (!nlsCheckH1.is(_filtrarH1) && !nlsCheckH2.is(_filtrarH2) && !checkH3.is(_filtrarH3)){
-            //     console.log('Testando aqui B1');
-            //     // console.log(nlsCheckH3.is(_filtrarH3));
-            //     _el.nextUntil(_filtrarH3).addClass('ocultar')
-            //     console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
-            //     console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
-            //     console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
-            // }
-            // if (!nlsCheckH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
-            //     // _el.nextUntil(_xn3).addClass('ocultar')
-            // }
-
-            // → TRATAR todos els entre _el e a próxima xn3
+            // ! tratar classes de niveis inferiores
+            if (!checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){
+                _el.nextUntil(_filtrarH3).addClass('ocultar')
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('n4-recolhido')
+            }
+            else
+            if (!checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){
+                _el.nextUntil(_filtrarH5).addClass('ocultar')
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('n5-recolhido')
+            }
+            else
+            if (!checkH1.is(_filtrarH1) && checkH6.is(_filtrarH6)){
+                _el.nextUntil(_filtrarH6).addClass('ocultar')
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('n6-recolhido')
+            }
 
         } else
         if(recolhido){// * #EXPANDIR-H3
