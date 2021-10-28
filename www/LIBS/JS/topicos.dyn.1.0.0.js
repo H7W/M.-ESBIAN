@@ -1,22 +1,22 @@
 // criar topicos com dinâmicas -v1.0.0.
 // → 1° Fase:
 $('.leitor > h1').each(function () {
-    $(this).addClass('xT1')
+    $(this).addClass('xn1')
 })
 $('.leitor > h2').each(function () {
-    $(this).addClass('xT2')
+    $(this).addClass('xn2')
 })
 $('.leitor > h3').each(function () {
-    $(this).addClass('xT3')
+    $(this).addClass('xn3')
 })
 $('.leitor > h4').each(function () {
-    $(this).addClass('xT4')
+    $(this).addClass('xn4')
 })
 $('.leitor > h5').each(function () {
-    $(this).addClass('xT5')
+    $(this).addClass('xn5')
 })
 $('.leitor > h6').each(function () {
-    $(this).addClass('xT6')
+    $(this).addClass('xn6')
 })
 
 // → 2° Fase:
@@ -29,6 +29,11 @@ const topicosDyn = { // *
         )
         topicosDyn.timignClick(
             $('.leitor > h2'),
+            'touchstart',
+            'touchend'
+        )
+        topicosDyn.timignClick(
+            $('.leitor > h3'),
             'touchstart',
             'touchend'
         )
@@ -47,12 +52,14 @@ const topicosDyn = { // *
             timer = setTimeout(function () {
                 switch ($this.prop('tagName')) {
                     case 'H1':
-                        topicosDyn.tratarH1($this, '.xT1', '.xT2', '.xT3', '.xT4', '.xT5', '.xT6')
-                        $this.toggleClass('dest_xTH1')
+                        topicosDyn.tratarH1($this, '.xn1', '.xn2', '.xn3', '.xn4', '.xn5', '.xn6')
                         break;
                     case 'H2':
-                        topicosDyn.tratarH2($this, '.xT2')
-                        $this.toggleClass('dest_xTH2')
+                        topicosDyn.tratarH2($this, '.xn2', '.xn1', '.xn2', '.xn3', '.xn4', '.xn5', '.xn6')
+                        break;
+                    case 'H3':
+                        topicosDyn.tratarH3($this, '.xn3', '.xn1', '.xn2','.xn3', '.xn4', '.xn5', '.xn6')
+                        break;
                     default:
                         break;
                 }
@@ -63,94 +70,281 @@ const topicosDyn = { // *
             return false
         })
     },
-    tratarH1: function xT1(
+    tratarH1: function xn1(
         _el, // * el clicado
-        _xT1, // * tag principal a tratada
+        _xn1, // * tag principal a tratada
         _filtrarH2,
         _filtrarH3,
         _filtrarH4,
         _filtrarH5,
         _filtrarH6
     ) {
-        //* 1° Passo: verificar se o el clicado tem a classe 'H1-recolhido'
-        let recolhido = _el.hasClass('H1-recolhido')
+        //* 1° Passo: verificar se o el clicado tem a classe 'n1-recolhido'
+        let recolhido = _el.hasClass('n1-recolhido')
 
-        if (!recolhido) { // * se não tiver a class 'H1-recolhido' então...
+
+        if (!recolhido) { // * #RECOLHER-H1 se não tiver a class 'n1-recolhido' então...
+
             // console.log('False: ' + recolhido)
-            _el.addClass('H1-recolhido') //* então => adicinar 'H1-recolhido'
-            let todosElsEntre = _el.nextUntil(_xT1) // * nexUntil => selecionar todos os els  entre 'xTH1' clicado e o próximo 'xTH1'
+            _el.addClass('n1-recolhido') //* então => adicinar 'n1-recolhido'
+            let todosElsEntre = _el.nextUntil(_xn1) // * nexUntil => selecionar todos os els  entre 'xTH1' clicado e o próximo 'xTH1'
             ocultarTodos = todosElsEntre.addClass('ocultar') // * addClass => adicina a class ocultar a todos os els entre 'xTH1' e o próximo 'xTH1'
-            checkH2 = todosElsEntre.filter(_filtrarH2) // * filtrar  => todos os 'h2'
-            checkH3 = todosElsEntre.filter(_filtrarH3) // * filtrar  => todos os 'h3'
-            checkH4 = todosElsEntre.filter(_filtrarH4) // * filtrar  => todos os 'h4'
-            checkH5 = todosElsEntre.filter(_filtrarH5) // * filtrar  => todos os 'h5'
+            checkH2 = todosElsEntre.filter(_filtrarH2) // * filtrar  => todos os _filtrarH2
+            checkH3 = todosElsEntre.filter(_filtrarH3) // * filtrar  => todos os _filtrarH3
+            checkH4 = todosElsEntre.filter(_filtrarH4) // * filtrar  => todos os _filtrarH4
+            checkH5 = todosElsEntre.filter(_filtrarH5) // * filtrar  => todos os _filtrarH4
             checkH6 = todosElsEntre.filter(_filtrarH6) // * filtrar  => todos os 'h6'
 
-            if (checkH2.is('H2')) { // * checkar => se tem tag(s) h2, se tiver então...
-                checkH2.removeClass('ocultar') // * remover a class 'ocultar'
-            } else
-            if (!checkH2.is('H2') && checkH3.is('H3')) { // * checkar => se não tem a tag(s) h2 e se tem a tag(s) h3, então
-                checkH3.removeClass('ocultar') // * remover a class 'ocultar'
-            } else
-            if (!checkH2.is('H2') && !checkH3.is('H3') && checkH4.is('H4')) { // * checkar => mesma lógica do if anteriores, porém, para checkar a tag h4
-                checkH4.removeClass('ocultar') // * remover a class 'ocultar'
-            } else
-            if (!checkH2.is('H2') && !checkH3.is('H3') && !checkH4.is('H4') && checkH5.is('H5')) { // * checkar => mesma lógica do if anteriores, porém, para checkar a tag h5
-                checkH5.removeClass('ocultar') // * remover a class 'ocultar'
+            if (checkH2.is(_filtrarH2)) { // * checar => se tem tag(s) h2, se tiver então...
+                checkH2.removeClass('ocultar')
+                checkH2.addClass('n2-recolhido')
             }
-            if (!checkH2.is('H2') && !checkH3.is('H3') && !checkH4.is('H4') && !checkH5.is('H5') && checkH6.is('H6')) { // * checkar => mesma lógica do if anteriores, porém, para checkar a tag h6
-                checkH6.removeClass('ocultar') // * remover a class 'ocultar'
+            else
+            if (!checkH2.is(_filtrarH2) && checkH3.is(_filtrarH3)) { // * checar => se não tem a tag(s) h2 e se tem a tag(s) h3, então
+                checkH3.removeClass('ocultar')
+                checkH3.addClass('n3-recolhido')
             }
+            else
+            if (!checkH2.is(_filtrarH2) && !checkH3.is(_filtrarH3) && checkH4.is(_filtrarH4)) { // * checar => mesma lógica do if anteriores, porém, para checar a tag h4
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('n4-recolhido')
+            }
+            else
+            if (!checkH2.is(_filtrarH2) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && checkH5.is(_filtrarH5)) { // * checar => mesma lógica do if anteriores, porém, para checar a tag h5
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('n5-recolhido')
+            }
+            else
+            if (!checkH2.is(_filtrarH2) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH4) && checkH6.is(_filtrarH6)) { // * checar => mesma lógica do if anteriores, porém, para checar a tag h6
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('n6-recolhido')
+            }
+        } else { // * #EXPANDIR-H1
+            _el.removeClass('n1-recolhido')
+            let todosElsEntre = _el.nextUntil(_xn1)
+            checkH2 = todosElsEntre.filter(_filtrarH2)
 
-        } else {
-
-            // console.log(proximoAte)
-            // console.log(getFilter)
-            // console.log(getFilter.is())
-            // console.log(getFilter.is(getFilter))
-
-
-            // console.log('True: ' + recolhido)
-            // _el.removeClass('H1-recolhido')         // * 5° passo: remover a class 'H1-recolhido porque agora não está mais recolhido'
-
-            // let a = _el.nextUntil(_filtrarH2)      // * 6° passo: filtrar => obter todos os els desde o xTH1 clicado até o próximo xTH2 na árvore Dom
-            // b = a.removeClass('ocultar')       // * 7° passp: remove a class 'ocultar de todos os els entre xTH1 até o próximo xTH2
-
-            // _el.nextUntil(_xT1).filter('h2').removeClass('ocultar').addClass('H2-recolhido')
+            // if (!checkH2.is(_filtrarH2)) {
+            //     mostrarTodos = todosElsEntre.removeClass('ocultar')
+            //     checkH2.removeClass('ocultar')
+            // } else
+            if(checkH2.is(_filtrarH2)){
+                console.log('check is h2: '+checkH2.is(_filtrarH2))
+                _el.nextUntil(_filtrarH2).removeClass('ocultar')
+                console.log(_el.nextUntil(_filtrarH2))
+            } else
+            if(checkH3.is(_filtrarH3)){
+                console.log('check is h3: '+checkH3.is(_filtrarH3))
+                _el.nextUntil(_filtrarH3).removeClass('ocultar')
+                console.log(_el.nextUntil(_filtrarH3))
+            }
         }
     },
-    tratarH2: function xT2(
+    tratarH2: function xn2(
         _el, // * el clicado
-        _xT2 // * tag principal a tratada
+        _xn2, // * tag principal a tratada
+        _filtrarH1,
+        _filtrarH2,
+        _filtrarH3,
+        _filtrarH4,
+        _filtrarH5,
+        _filtrarH6
     ) {
-        let recolhido = _el.hasClass('H2-recolhido') // * verificar se tem a class 'H2-recolhido
+        let recolhido = _el.hasClass('n2-recolhido')
 
-        if (!recolhido) { // * se não tiver a class ''H2-recolhido' então...
-            // let retunarElEntre = _el.nextUntil('h2')
-            // let getFilter = retunarElEntre.filter('h1')
+        if (!recolhido) {
+            _el.addClass('n2-recolhido')
+            let todosElsEntre = _el.nextUntil(_xn2)
+            checkH1 = todosElsEntre.filter(_filtrarH1)
+            checkH2 = todosElsEntre.filter(_filtrarH2)
+            checkH3 = todosElsEntre.filter(_filtrarH3)
+            checkH4 = todosElsEntre.filter(_filtrarH4)
+            checkH5 = todosElsEntre.filter(_filtrarH5)
+            checkH6 = todosElsEntre.filter(_filtrarH6)
 
-            // console.log('False: ' + recolhido)
-            // console.log(getFilter.is())
 
-            // switch (getFilter.is()) {
-            //     case getFilter.is(getFilter):
-            //         // console.log("Depois do último elemento do _el É um h2")
-            //         _el.nextUntil('h2').addClass('ocultar')
-            //         _el.addClass('H2-recolhido')
-            //         break;
-            //     case !getFilter.is(getFilter):
-            //         // console.log("Depois do último elemento do _el Não é um h2")
-            //         _el.nextUntil('h1').addClass('ocultar')
-            //         _el.addClass('H2-recolhido')
-            //         break;
-            //     default:
-            //         break;
-            // }
-        } else {
-            // console.log('True: ' + recolhido)
-            // _el.removeClass('H2-recolhido') // * remover a class 'H2-recolhido porque agora não está mais recolhido'
-            // _el.nextUntil('h2').removeClass('ocultar') // *
-            // _el.nextUntil(_xT2).filter('h2').removeClass('ocultar').addClass('H2-recolhido')
+            if (!checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+                _el.nextUntil(_xn2).addClass('ocultar')
+            } else
+            if (checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+            } else // → TRATAR todos els entre _el e a próxima xn2
+            if (!checkH1.is(_filtrarH1) && checkH3.is(_filtrarH3)){
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
+                checkH3.removeClass('ocultar')
+                checkH3.addClass('n3-recolhido')
+            } else
+            if (!checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('n4-recolhido')
+            } else
+            if (!checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('n5-recolhido')
+            } else
+            if (!checkH1.is(_filtrarH1) && checkH6.is(_filtrarH6)){
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('n6-recolhido')
+            }
+            // → TRATAR todos els entre _el e a próxima xn1
+            if (checkH1.is(_filtrarH1) && checkH3.is(_filtrarH3)){
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH3.removeClass('ocultar')
+                checkH3.addClass('n3-recolhido')
+            }
+            if (checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('n4-recolhido')
+            }
+            if (checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('n5-recolhido')
+            }
+            if (checkH1.is(_filtrarH1) && checkH6.is(_filtrarH6)){
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('n6-recolhido')
+            }
+        } else
+        if(recolhido){// * #EXPANDIR-H2
+            _el.removeClass('n2-recolhido')
+            let todosElsEntre = _el.nextUntil(_xn2)
+                checkH1 = todosElsEntre.filter(_filtrarH1),
+                checkH2 = todosElsEntre.filter(_filtrarH2),
+                checkH3 = todosElsEntre.filter(_filtrarH3),
+                checkH4 = todosElsEntre.filter(_filtrarH4),
+                checkH5 = todosElsEntre.filter(_filtrarH5),
+                checkH6 = todosElsEntre.filter(_filtrarH6)
+
+            if (!checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                _el.nextUntil(_xn2).removeClass('ocultar')
+            }
+            if (checkH1.is(_filtrarH1) && !checkH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){ // * todas negativas para um nivél abaixo
+                _el.nextUntil(_filtrarH1).removeClass('ocultar')
+            }
+            if (checkH3.is(_filtrarH3)){
+                _el.nextUntil(_filtrarH3).removeClass('ocultar')
+                checkH3.removeClass('ocultar')
+                checkH3.addClass('n3-recolhido')
+            }
+            else
+            if (checkH4.is(_filtrarH4)){
+                _el.nextUntil(_filtrarH4).removeClass('ocultar')
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('n4-recolhido')
+            }
+            else
+            if (checkH5.is(_filtrarH5)){
+                _el.nextUntil(_filtrarH5).removeClass('ocultar')
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('n5-recolhido')
+            }
+            else
+            if (checkH6.is(_filtrarH6)){
+                _el.nextUntil(_filtrarH6).removeClass('ocultar')
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('n6-recolhido')
+            }
+        }
+    },
+    tratarH3: function xn2(
+        _el, // * el clicado
+        _xn3, // * tag principal a tratada
+        _filtrarH1,
+        _filtrarH2,
+        _filtrarH3,
+        _filtrarH4,
+        _filtrarH5,
+        _filtrarH6
+    ) {
+        let recolhido = _el.hasClass('n2-recolhido')
+
+        if (!recolhido) { // * #RECOLHER-H3
+            _el.addClass('n3-recolhido')
+            // ! variáveis tratar classes de niveis superiores
+            let nlsTodosElsEntre = _el.nextUntil(_filtrarH1),
+            nlsCheckH2 = nlsTodosElsEntre.filter(_filtrarH2),
+            nlsCheckH3 = nlsTodosElsEntre.filter(_filtrarH3)
+
+            // ! variáveis tratar classes de niveis inferiores
+            let todosElsEntre = _el.nextUntil(_xn3),
+            checkH1 = todosElsEntre.filter(_filtrarH1),
+            // checkH2 = todosElsEntre.filter(_filtrarH3),
+            // checkH3 = todosElsEntre.filter(_filtrarH3),
+            checkH4 = todosElsEntre.filter(_filtrarH4),
+            checkH5 = todosElsEntre.filter(_filtrarH5),
+            checkH6 = todosElsEntre.filter(_filtrarH6)
+
+
+            // ! tratar classes de niveis superiores
+            if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) ){
+                console.log('tratando caso A');
+
+                _el.nextUntil(_xn3).addClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            } else
+            if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) ){
+                console.log('tratando aqui A1');
+                _el.nextUntil(_xn3).addClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            }
+            if (!nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) ){
+                console.log('tratando aqui B');
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            }
+            else
+            if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) ){
+                console.log('tratando aqui B1');
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            }
+            // ! tratar classes de niveis inferiores
+            if (!checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){
+                _el.nextUntil(_filtrarH3).addClass('ocultar')
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('n4-recolhido')
+            }
+            else
+            if (!checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)){
+                _el.nextUntil(_filtrarH5).addClass('ocultar')
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('n5-recolhido')
+            }
+            else
+            if (!checkH1.is(_filtrarH1) && checkH6.is(_filtrarH6)){
+                _el.nextUntil(_filtrarH6).addClass('ocultar')
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('n6-recolhido')
+            }
+
+        } else
+        if(recolhido){// * #EXPANDIR-H3
+            _el.removeClass('n2-recolhido')
+            let todosElsEntre = _el.nextUntil(_xn2)
+                checkH1 = todosElsEntre.filter(_filtrarH1),
+                checkH2 = todosElsEntre.filter(_filtrarH2),
+                checkH3 = todosElsEntre.filter(_filtrarH3),
+                checkH4 = todosElsEntre.filter(_filtrarH4),
+                checkH5 = todosElsEntre.filter(_filtrarH5),
+                checkH6 = todosElsEntre.filter(_filtrarH6)
+
+
+            if (!checkH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+                _el.nextUntil(_xn3).removeClass('ocultar')
+            }
+            if (checkH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+                _el.nextUntil(_filtrarH1).removeClass('ocultar')
+            }
 
         }
     }

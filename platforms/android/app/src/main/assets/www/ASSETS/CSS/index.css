@@ -245,18 +245,60 @@ body > .paginas > header > h1 {
 body > .paginas > main {
   background-color: transparent;
   width: 100%;
-  padding: 5px 15px;
+  padding: 5px 25px;
   min-height: fit-content;
   display: grid;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body > .paginas > main > h1 {
-  margin: 8px 0px 5px 0px;
+body > .paginas > main > h1.xn1 {
+  margin: 0.85rem 0rem 0.95rem 0rem !important;
+  font-size: 2rem;
+  line-height: 2.0rem;
+  letter-spacing: -0.09375rem;
+  font-weight: 700;
+  font-family: opensanstitle, helvetica, arial, sans-serif;
+  word-break: break-all;
 }
 
-body > .paginas > main > p {
-  text-align: justify;
+body > .paginas > main > h2.xn2 {
+  margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  letter-spacing: -0.09375rem;
+  font-weight: 700;
+  font-family: opensanstitle, helvetica, arial, sans-serif;
+  word-break: break-all;
+}
+
+body > .paginas > main > h3.xn3 {
+  margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
+  font-size: 1.2rem;
+  line-height: 1.1rem;
+  letter-spacing: -0.09375rem;
+  font-weight: 700;
+  font-family: opensanstitle, helvetica, arial, sans-serif;
+  word-break: break-all;
+}
+
+body > .paginas > main > h4.xn5, body > .paginas > main h5.xn5 {
+  margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
+  font-size: 1.2rem;
+  line-height: 0.9rem;
+  letter-spacing: -0.09375rem;
+  font-weight: 700;
+  font-family: opensanstitle, helvetica, arial, sans-serif;
+  word-break: break-all;
+}
+
+body > .paginas > main > p.defaultP1 {
+  font-size: 1.125rem;
+  font-family: 'Lato Regular',helvetica,arial,sans-serif;
+  font-family: 'Open Sans Regular',helvetica,arial,sans-serif;
+  margin-bottom: 1.0rem;
+  line-height: 1.75rem;
+  letter-spacing: -.03125rem;
+  overflow-wrap: break-word;
 }
 
 body > footer {
@@ -275,65 +317,162 @@ body > footer {
   z-index: 99;
 }
 
-body p.testeFontes {
-  font-size: 1.125rem;
-  font-family: 'Lato Regular',helvetica,arial,sans-serif;
-  font-family: 'Open Sans Regular',helvetica,arial,sans-serif;
-  margin-bottom: 1.0rem;
-  line-height: 1.75rem;
-  letter-spacing: -.03125rem;
-  overflow-wrap: break-word;
+body .xn1 {
+  position: relative;
 }
 
-body .dest_xTH1 {
-  margin: 0.85rem 0rem 0.95rem 0rem !important;
-  font-size: 2rem;
-  line-height: 2.0rem;
-  letter-spacing: -0.09375rem;
-  font-weight: 700;
-  font-family: opensanstitle, helvetica, arial, sans-serif;
-  word-break: break-all;
+body .xn1::after {
+  content: "\268A ";
+  font-size: 0.9rem !important;
+  font-weight: 100;
+  color: #3d3b3b;
+  position: absolute;
+  top: 5%;
+  left: -23px;
+  cursor: pointer;
+  pointer-events: all;
 }
 
-body .dest_xTH2 {
-  color: #0078d7;
-  margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
-  font-size: 1.4rem;
-  line-height: 1.4rem;
-  letter-spacing: -0.09375rem;
-  font-weight: 700;
-  font-family: opensanstitle, helvetica, arial, sans-serif;
-  word-break: break-all;
+body .n1-recolhido::after {
+  content: "\271A ";
+  font-weight: 100;
+  font-size: 0.9rem !important;
+  color: #555353;
+  transform: rotate(0deg);
+  position: absolute;
+  cursor: pointer;
+  pointer-events: all;
 }
 
-body .dest_xTH3 {
-  color: #f7630c;
-  margin: 0.85rem 0.0rem 0.45rem 0.0rem !important;
-  font-size: 1.2rem;
-  line-height: 1.1rem;
-  letter-spacing: -0.09375rem;
-  font-weight: 700;
-  font-family: opensanstitle, helvetica, arial, sans-serif;
-  word-break: break-all;
+body .xn2 {
+  position: relative;
 }
 
-body .dest_xTH4 {
-  color: #11708c;
-  background-color: #e3e3e3;
-  font-size: 0.9em;
+body .xn2::before {
+  content: "\268A ";
+  font-size: 0.9rem !important;
+  font-weight: 100;
+  color: #3d3b3b;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  cursor: pointer;
 }
 
-body .dest_xTH5 {
-  color: #383838;
-  background-color: #e3e3e3;
-  font-size: 0.9em;
+body .n2-recolhido::before {
+  content: "\271A ";
+  font-weight: 100;
+  font-size: 0.9rem !important;
+  color: #555353;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  cursor: pointer;
+  pointer-events: all;
 }
 
-body .xT1, body .xT2, body .xT3, body .xT4, body .xT5, body .xT6 {
-  margin-bottom: 5px;
+body .xn3 {
+  position: relative;
 }
 
-body .H1-recolhido {
-  margin-bottom: 15px;
+body .xn3::before {
+  content: "\268A ";
+  font-size: 0.9rem !important;
+  font-weight: 100;
+  color: #3d3b3b;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  cursor: pointer;
+}
+
+body .n3-recolhido::before {
+  content: "\271A ";
+  font-weight: 100;
+  font-size: 0.9rem !important;
+  color: #555353;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+body .xn4 {
+  position: relative;
+}
+
+body .xn4::before {
+  content: "\268A ";
+  font-size: 0.9rem !important;
+  font-weight: 100;
+  color: #3d3b3b;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  cursor: pointer;
+}
+
+body .n4-recolhido::before {
+  content: "\271A ";
+  font-weight: 100;
+  font-size: 0.9rem !important;
+  color: #555353;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+body .xn5 {
+  position: relative;
+}
+
+body .xn5::before {
+  content: "\268A ";
+  font-size: 0.9rem !important;
+  font-weight: 100;
+  color: #3d3b3b;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  cursor: pointer;
+}
+
+body .n5-recolhido::before {
+  content: "\271A ";
+  font-weight: 100;
+  font-size: 0.9rem !important;
+  color: #555353;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+body .xn6 {
+  position: relative;
+  color: red;
+}
+
+body .xn6::before {
+  content: "\268A ";
+  font-size: 0.9rem !important;
+  font-weight: 100;
+  color: #3d3b3b;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  cursor: pointer;
+}
+
+body .n6-recolhido {
+  color: green;
+}
+
+body .n6-recolhido::before {
+  content: "\271A ";
+  font-weight: 100;
+  font-size: 0.9rem !important;
+  color: #555353;
+  position: relative;
+  margin: 0px 0.5rem 0px 0px;
+  cursor: pointer;
+  pointer-events: all;
 }
 /*# sourceMappingURL=index.css.map */
