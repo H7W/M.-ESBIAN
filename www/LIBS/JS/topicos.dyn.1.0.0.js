@@ -364,6 +364,8 @@ const topicosDyn = { // *
             checkH5 = todosElsEntre.filter(_filtrarH5),
             checkH6 = todosElsEntre.filter(_filtrarH6)
 
+
+
             // ! tratar classes de niveis superiores
             if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
                 // console.log('tratando caso A');
@@ -432,10 +434,6 @@ const topicosDyn = { // *
             nlsCheckH3 = nlsTodosElsEntre.filter(_filtrarH3)
             nlsCheckH4 = nlsTodosElsEntre.filter(_filtrarH4)
 
-            console.log('nlsCheckH2 estado?: '+ nlsCheckH2.is(_filtrarH2))
-            console.log('nlsCheckH3 estado?: '+ nlsCheckH3.is(_filtrarH3))
-            console.log('nlsCheckH4 estado?: '+ nlsCheckH4.is(_filtrarH4))
-
             // ! variáveis tratar classes de niveis inferiores
             let todosElsEntre = _el.nextUntil(_xn4),
             checkH1 = todosElsEntre.filter(_filtrarH1),
@@ -443,70 +441,172 @@ const topicosDyn = { // *
             checkH5 = todosElsEntre.filter(_filtrarH5),
             checkH6 = todosElsEntre.filter(_filtrarH6)
 
+            console.log('nlsCheckH2 estado?: '+ nlsCheckH2.is(_filtrarH2))
+            console.log('nlsCheckH3 estado?: '+ nlsCheckH3.is(_filtrarH3))
+            console.log('nlsCheckH4 estado?: '+ nlsCheckH4.is(_filtrarH4))
 
             // ! tratar classes de niveis superiores
-            if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
-                console.log('tratando caso A');
-                _el.nextUntil(_xn4).addClass('ocultar')
-                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
-                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
-                console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
-            }
-            else
-            if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
-                console.log('tratando caso AX1');
-                _el.nextUntil(_xn4).addClass('ocultar')
-                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
-                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
-                console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
-            }
-             else
-            if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
-                console.log('tratando caso AX2');
-                _el.nextUntil(_xn4).addClass('ocultar')
-                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
-                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
-                console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
-            }
-             else
-            if (!nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
-                console.log('tratando aqui A1');
-                _el.nextUntil(_xn4).addClass('ocultar')
-                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
-                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
-                console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
-
-            }
-            if (!nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)){
-                console.log('tratando aqui B');
+            /* linha de raciocínio(nível 4) => nlsTodosElsEntre(elecinar todos os els entre esse el e o próximo xn1)
+                * tratar classes de niveis superiores
+                * ---
+                * tratando caso X-A
+                    * se nlsCheckH2 é FALSO: significa que NÃO TEM um ou mais xn2 &&
+                    * se nlsCheckH3 é FALSO: significa que NÃO TEM ou mais xn2 &&
+                    * se nlsCheckH4 é FALSO: significa que NÃO TEM ou mais xn4 &&
+                    * ou seja, recolher todos os els entre esse el e o próximo _filtrarH1
+                * ---
+                * tratando caso X-A1 (este caso é uma variante do caso X-A)
+                    * se nlsCheckH2 é TRUE: significa que TEM um ou mais xn2 &&
+                    * se nlsCheckH3 é FALSO: significa que NÃO TEM um ou mais xn3
+                    * se nlsCheckH4 é FALSO: significa que NÃO TEM ou mais xn4
+                    * ou seja, recolher todos os els entre esse el e o próximo _filtrarH2
+                * ---
+                * tratando caso X-A2 (este caso é uma variante do caso X-A)
+                    * se nlsCheckH2 é FALSO: significa que NÃO TEM um ou mais xn2 &&
+                    * se nlsCheckH3 é TRUE: significa que TEM um ou mais xn3
+                    * se nlsCheckH4 é FALSO: significa que NÃO TEM ou mais xn4
+                    * ou seja, recolher todos os els entre esse el e o próximo _filtrarH3
+                * ---
+                * tratando caso X-B
+                    * se nlsCheckH2 é FALSO: significa que NÃO TEM um ou mais xn2 &&
+                    * se nlsCheckH3 é TRUE: significa que TEM um ou mais xn3
+                    * se nlsCheckH4 é TRUE: significa que TEM ou mais xn4
+                    * ou seja, recolher todos os els entre esse el e o próximo _filtrarH4
+                * ---
+                * tratando caso X-B1 (este caso é uma variante do caso X-B)
+                    * se nlsCheckH2 é TRUE: significa que TEM um ou mais xn2 &&
+                    * se nlsCheckH3 é FALSO: significa que NÃO TEM um ou mais xn3
+                    * se nlsCheckH4 é TRUE: significa que TEM ou mais xn4
+                    * ou seja, recolher todos os els entre esse el e o próximo _filtrarH4
+                * ---
+                * tratando caso X-B2 (este caso é uma variante do caso X-B)
+                    * se nlsCheckH2 é FALSO: significa que TEM um ou mais xn2 &&
+                    * se nlsCheckH3 é FALSO: significa que NÃO TEM um ou mais xn3
+                    * se nlsCheckH4 é TRUE: significa que TEM ou mais xn4
+                    * ou seja, recolher todos os els entre esse el e o próximo _filtrarH4
+                * ---
+                * tratando caso X-B3 (este caso é uma variante do caso X-B)
+                    * se nlsCheckH2 é TRUE: significa que TEM um ou mais xn2 &&
+                    * se nlsCheckH3 é TRUE: significa que TEM TEM um ou mais xn3
+                    * se nlsCheckH4 é TRUE: significa que TEM ou mais xn4
+                    * ou seja, recolher todos os els entre esse el e o próximo _filtrarH4
+                * ---
+                *
+                *
+            */
+           if (!nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)){
+                console.log('tratando aqui X-A');
                 _el.nextUntil(_filtrarH1).addClass('ocultar')
                 console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
                 console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
                 console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
             }
-            else
-            if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)){
-                console.log('tratando aqui B1');
-                _el.nextUntil(_filtrarH3).addClass('ocultar')
-                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
-                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
-                console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
-            }
-            else
-            if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)){
-                console.log('tratando aqui B2');
+           if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)){
+                console.log('tratando aqui X-A1');
                 _el.nextUntil(_filtrarH2).addClass('ocultar')
                 console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
                 console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
                 console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
             }
-            if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)){
-                console.log('tratando aqui B2');
+           if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)){
+                console.log('tratando aqui X-A2');
                 _el.nextUntil(_filtrarH3).addClass('ocultar')
                 console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
                 console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
                 console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
             }
+           if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)){
+                console.log('tratando aqui X-A3');
+                _el.nextUntil(_filtrarH3).addClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+                console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+            }
+           if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
+                console.log('tratando aqui X-B');
+                _el.nextUntil(_filtrarH4).addClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+                console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+            }
+            if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
+                console.log('tratando aqui X-B1');
+                _el.nextUntil(_filtrarH4).addClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+                console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+            }
+            if (!nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
+                console.log('tratando aqui X-B2');
+                _el.nextUntil(_filtrarH4).addClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+                console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+            }
+            if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
+                console.log('tratando aqui X-B3');
+                _el.nextUntil(_filtrarH4).addClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+                console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+            }
+            
+            // if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
+            //     console.log('tratando caso A');
+            //     _el.nextUntil(_xn4).addClass('ocultar')
+            //     console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+            //     console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            //     console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+            // }
+            // else
+            // if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
+            //     console.log('tratando caso AX1');
+            //     _el.nextUntil(_xn4).addClass('ocultar')
+            //     console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+            //     console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            //     console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+            // }
+            //  else
+            // if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
+            //     console.log('tratando caso AX2');
+            //     _el.nextUntil(_xn4).addClass('ocultar')
+            //     console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+            //     console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            //     console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+            // }
+            //  else
+            // if (!nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
+            //     console.log('tratando aqui A1');
+            //     _el.nextUntil(_xn4).addClass('ocultar')
+            //     console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+            //     console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            //     console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+
+            // }
+
+            // else
+            // if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)){
+            //     console.log('tratando aqui B1');
+            //     _el.nextUntil(_filtrarH3).addClass('ocultar')
+            //     console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+            //     console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            //     console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+            // }
+            // else
+            // if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)){
+            //     console.log('tratando aqui B2');
+            //     _el.nextUntil(_filtrarH2).addClass('ocultar')
+            //     console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+            //     console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            //     console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+            // }
+            // if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)){
+            //     console.log('tratando aqui B2');
+            //     _el.nextUntil(_filtrarH3).addClass('ocultar')
+            //     console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+            //     console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            //     console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
+            // }
 
 
             // ! tratar classes de niveis inferiores
