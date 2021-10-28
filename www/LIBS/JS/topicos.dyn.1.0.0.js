@@ -262,7 +262,7 @@ const topicosDyn = { // *
         _filtrarH5,
         _filtrarH6
     ) {
-        let recolhido = _el.hasClass('n2-recolhido')
+        let recolhido = _el.hasClass('n3-recolhido')
 
         if (!recolhido) { // * #RECOLHER-H3
             _el.addClass('n3-recolhido')
@@ -283,30 +283,29 @@ const topicosDyn = { // *
 
             // ! tratar classes de niveis superiores
             if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) ){
-                console.log('tratando caso A');
-
+                // console.log('tratando caso A');
                 _el.nextUntil(_xn3).addClass('ocultar')
-                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
-                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+                // console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                // console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             } else
             if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) ){
-                console.log('tratando aqui A1');
+                // console.log('tratando aqui A1');
                 _el.nextUntil(_xn3).addClass('ocultar')
-                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
-                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+                // console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                // console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             }
             if (!nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) ){
-                console.log('tratando aqui B');
+                // console.log('tratando aqui B');
                 _el.nextUntil(_filtrarH1).addClass('ocultar')
-                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
-                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+                // console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                // console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             }
             else
             if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) ){
-                console.log('tratando aqui B1');
+                // console.log('tratando aqui B1');
                 _el.nextUntil(_filtrarH2).addClass('ocultar')
-                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
-                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+                // console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                // console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             }
             // ! tratar classes de niveis inferiores
             if (!checkH1.is(_filtrarH1) && checkH4.is(_filtrarH4)){
@@ -327,23 +326,70 @@ const topicosDyn = { // *
                 checkH6.addClass('n6-recolhido')
             }
 
-        } else
+        }
+        else
         if(recolhido){// * #EXPANDIR-H3
-            _el.removeClass('n2-recolhido')
-            let todosElsEntre = _el.nextUntil(_xn2)
-                checkH1 = todosElsEntre.filter(_filtrarH1),
-                checkH2 = todosElsEntre.filter(_filtrarH2),
-                checkH3 = todosElsEntre.filter(_filtrarH3),
-                checkH4 = todosElsEntre.filter(_filtrarH4),
-                checkH5 = todosElsEntre.filter(_filtrarH5),
-                checkH6 = todosElsEntre.filter(_filtrarH6)
+            _el.removeClass('n3-recolhido')
 
 
-            if (!checkH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+            // ! variáveis tratar classes de niveis superiores
+            let nlsTodosElsEntre = _el.nextUntil(_filtrarH1),
+            nlsCheckH2 = nlsTodosElsEntre.filter(_filtrarH2),
+            nlsCheckH3 = nlsTodosElsEntre.filter(_filtrarH3)
+
+            // ! variáveis tratar classes de niveis inferiores
+            let todosElsEntre = _el.nextUntil(_xn3),
+            checkH1 = todosElsEntre.filter(_filtrarH1),
+            checkH2 = todosElsEntre.filter(_filtrarH3),
+            checkH3 = todosElsEntre.filter(_filtrarH3),
+            checkH4 = todosElsEntre.filter(_filtrarH4),
+            checkH5 = todosElsEntre.filter(_filtrarH5),
+            checkH6 = todosElsEntre.filter(_filtrarH6)
+
+            // ! tratar classes de niveis superiores
+            if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+                // console.log('tratando caso A');
                 _el.nextUntil(_xn3).removeClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            } else
+            if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+                // console.log('tratando aqui A1');
+                _el.nextUntil(_xn3).removeClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             }
-            if (checkH1.is(_filtrarH1) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+            if (!nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+                // console.log('tratando aqui B');
                 _el.nextUntil(_filtrarH1).removeClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            }
+            else
+            if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)){
+                // console.log('tratando aqui B1');
+                _el.nextUntil(_filtrarH2).removeClass('ocultar')
+                console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
+            }
+
+
+            // ! tratar classes de niveis inferiores
+            if (checkH4.is(_filtrarH4)){
+                _el.nextUntil(_filtrarH4).removeClass('ocultar')
+                checkH4.removeClass('ocultar')
+                checkH4.addClass('n4-recolhido')
+            }
+            else
+            if (checkH5.is(_filtrarH5)){
+                _el.nextUntil(_filtrarH5).removeClass('ocultar')
+                checkH5.removeClass('ocultar')
+                checkH5.addClass('n5-recolhido')
+            }
+            if (checkH6.is(_filtrarH6)){
+                _el.nextUntil(_filtrarH6).removeClass('ocultar')
+                checkH6.removeClass('ocultar')
+                checkH6.addClass('n6-recolhido')
             }
 
         }
