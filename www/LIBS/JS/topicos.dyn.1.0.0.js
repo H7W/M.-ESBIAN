@@ -275,45 +275,60 @@ const topicosDyn = { // *
             checkH6 = todosElsEntre.filter(_filtrarH6)
 
             let nlsTodosElsEntre = _el.nextUntil(_filtrarH1),
-            nlsCheckH1 = nlsTodosElsEntre.filter(_filtrarH1),
             nlsCheckH2 = nlsTodosElsEntre.filter(_filtrarH2),
             nlsCheckH3 = nlsTodosElsEntre.filter(_filtrarH3)
 
-            // console.log(todosElsEntre.filter(_filtrarH2))
-            console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
+            // console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
             console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
             console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
-            console.log('checkH3 estado: '+ checkH3.is(_filtrarH3))
-            // console.log('checkH4 estado: '+ checkH4.is(_filtrarH4))
-            // console.log('checkH5 estado: '+ checkH5.is(_filtrarH5))
-            // console.log('checkH6 estado: '+ checkH6.is(_filtrarH6))
 
-            if (!nlsCheckH1.is(_filtrarH1) && nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) ){
-                console.log('Testando aqui A1');
+            // ! tratar classes de niveis superiores
+            /* linha de raciocínio => nlsTodosElsEntre(elecinar todos os els entre esse el e o próximo xn1)
+                * tratar classes de niveis superiores
+                * ---
+                * tratando caso A
+                    * se nlsCheckH2 é TRUE: significa que tem um ou mais xn2 &&
+                    * se nlsCheckH3 é TRUE: significa que tem um ou mais xn3
+                    * ou seja, recolher todos os els entre esse el e o próximo _xn3
+                * ---
+                * tratando caso A1 (este caso é uma variante do caso A)
+                    * se nlsCheckH2 é FALSO: significa que tem um ou mais xn2 &&
+                    * se nlsCheckH3 é TRUE: significa que tem um ou mais xn3
+                    * ou seja, recolher todos os els entre esse el e o próximo _xn3
+                * ---
+                * tratando caso B
+                    * se nlsCheckH2 é FALSO: significa que NÃO TEM um ou mais xn2 &&
+                    * se nlsCheckH3 é FALSO: significa que NÃO TEM um ou mais xn3
+                    * ou seja, recolher todos os els entre esse el e o próximo xn1
+                * ---
+                * tratando caso B1
+                    * se nlsCheckH2 é TRUE: significa que tem um ou mais xn2 &&
+                    * se nlsCheckH3 é FALSE: significa que NÃO TEM um ou mais xn3
+                   * ou seja, recolher todos os els entre esse el e o próximo xn2
+            */
+            if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) ){
+                console.log('tratando caso A');
+
                 _el.nextUntil(_xn3).addClass('ocultar')
-                console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
                 console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
                 console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             } else
-            if (!nlsCheckH1.is(_filtrarH1) && !nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) ){
-                console.log('Testando aqui A1');
+            if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) ){
+                console.log('tratando aqui A1');
                 _el.nextUntil(_xn3).addClass('ocultar')
-                console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
                 console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
                 console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             }
-            if (!nlsCheckH1.is(_filtrarH1) && !nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) ){
-                console.log('Testando aqui B1');
+            if (!nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) ){
+                console.log('tratando aqui B');
                 _el.nextUntil(_filtrarH1).addClass('ocultar')
-                console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
                 console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
                 console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             }
             else
-            if (!nlsCheckH1.is(_filtrarH1) && nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) ){
-                console.log('Testando aqui C1');
+            if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) ){
+                console.log('tratando aqui B1');
                 _el.nextUntil(_filtrarH2).addClass('ocultar')
-                console.log('nlsCheckH1 estado: '+ nlsCheckH1.is(_filtrarH1))
                 console.log('nlsCheckH2 estado: '+ nlsCheckH2.is(_filtrarH2))
                 console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
             }
