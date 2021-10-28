@@ -441,12 +441,9 @@ const topicosDyn = { // *
             checkH5 = todosElsEntre.filter(_filtrarH5),
             checkH6 = todosElsEntre.filter(_filtrarH6)
 
-            console.log('nlsCheckH2 estado?: '+ nlsCheckH2.is(_filtrarH2))
-            console.log('nlsCheckH3 estado?: '+ nlsCheckH3.is(_filtrarH3))
-            console.log('nlsCheckH4 estado?: '+ nlsCheckH4.is(_filtrarH4))
-
+        
             // ! tratar classes de niveis superiores
-            /* linha de raciocínio(nível 4) => nlsTodosElsEntre(elecinar todos os els entre esse el e o próximo xn1)
+            /* linha de raciocínio(nível 4 || teste de commit) => nlsTodosElsEntre(elecinar todos os els entre esse el e o próximo xn1)
                 * tratar classes de niveis superiores
                 * ---
                 * tratando caso X-A
@@ -550,7 +547,7 @@ const topicosDyn = { // *
                 console.log('nlsCheckH3 estado: '+ nlsCheckH3.is(_filtrarH3))
                 console.log('nlsCheckH4 estado: '+ nlsCheckH4.is(_filtrarH4))
             }
-            
+
             // if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)){
             //     console.log('tratando caso A');
             //     _el.nextUntil(_xn4).addClass('ocultar')
