@@ -27,5 +27,7 @@ _Ai daquele que contende com o seu Criador! E não passa de um caco de barro ent
 > - [ ] [VS Code: guia completo para instalar, usar e customizar](https://blog.betrybe.com/ferramentas/vs-code-guia-completo/)
 > - [ ] ❗❗ [Touch Swipeable Sidebar Menu with jQuery and CSS3](https://www.jqueryscript.net/menu/Touch-Swipeable-Sidebar-Menu-with-jQuery-CSS3.html)
 > - [ ] ❗❗ [Mobile-friendly Swipe Menu In Vanilla JavaScript – Touch side swipe](https://www.cssscript.com/mobile-friendly-swipe-menu-vanilla-javascript-touch-side-swipe/)
+> - [ ] ❗❗ [Slide e Swipe Mobile Menu Plugin com jQuery](https://www.jqueryscript.net/menu/Slide-Swipe-Mobile-Menu-Plugin-with-jQuery.html)
+
 
 
