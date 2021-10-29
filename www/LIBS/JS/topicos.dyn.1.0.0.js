@@ -78,6 +78,9 @@ const topicosDyn = { // *
                     case 'H4':
                         topicosDyn.tratarH4($this, '.xn4', '.xn1', '.xn2', '.xn3', '.xn4', '.xn5', '.xn6')
                         break;
+                    case 'H5':
+                        topicosDyn.tratarH5($this, '.xn5', '.xn1', '.xn2', '.xn3', '.xn4', '.xn5', '.xn6')
+                        break;
                     default:
                         break;
                 }
@@ -354,7 +357,6 @@ const topicosDyn = { // *
                 checkH6 = todosElsEntre.filter(_filtrarH6)
 
 
-
             // ! tratar classes de niveis superiores
             if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !checkH4.is(_filtrarH4) && !checkH5.is(_filtrarH5) && !checkH6.is(_filtrarH6)) {
                 // console.log('tratando caso A');
@@ -398,7 +400,6 @@ const topicosDyn = { // *
                 checkH6.removeClass('ocultar')
                 checkH6.addClass('n6-recolhido')
             }
-
         }
     },
     tratarH4: function xn4(
@@ -548,6 +549,90 @@ const topicosDyn = { // *
                 checkH6.removeClass('ocultar')
                 checkH6.addClass('n6-recolhido')
             }
+        }
+    },
+    tratarH5: function xn5(
+        _el, // * el clicado
+        _xn4, // * tag principal a tratada
+        _filtrarH1,
+        _filtrarH2,
+        _filtrarH3,
+        _filtrarH4,
+        _filtrarH5,
+        _filtrarH6
+    ) {
+        let recolhido = _el.hasClass('n5-recolhido')
+
+        if (!recolhido) { // * #RECOLHER-H4
+            _el.addClass('n5-recolhido')
+            // ! variáveis tratar classes de niveis superiores
+            let nlsTodosElsEntre = _el.nextUntil(_filtrarH1),
+                nlsCheckH2 = nlsTodosElsEntre.filter(_filtrarH2),
+                nlsCheckH3 = nlsTodosElsEntre.filter(_filtrarH3)
+                nlsCheckH4 = nlsTodosElsEntre.filter(_filtrarH4)
+                nlsCheckH5 = nlsTodosElsEntre.filter(_filtrarH5)
+
+            // ! variáveis tratar classes de niveis inferiores
+            let todosElsEntre = _el.nextUntil(_xn4),
+                checkH1 = todosElsEntre.filter(_filtrarH1),
+                checkH4 = todosElsEntre.filter(_filtrarH4),
+                checkH5 = todosElsEntre.filter(_filtrarH5),
+                checkH6 = todosElsEntre.filter(_filtrarH6)
+
+                console.log('nlsCheckH2: '+ nlsCheckH2.is(_filtrarH2))
+                console.log('nlsCheckH3: '+ nlsCheckH3.is(_filtrarH3))
+                console.log('nlsCheckH4: '+ nlsCheckH4.is(_filtrarH4))
+                console.log('nlsCheckH5: '+ nlsCheckH5.is(_filtrarH5))
+
+
+            // ! tratar classes de niveis superiores
+            if (!nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4) &&  !nlsCheckH5.is(_filtrarH5)) {
+                console.log('Tratar 1° Caso: A')
+                _el.nextUntil(_filtrarH1).addClass('ocultar')
+            }
+            if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4) &&  !nlsCheckH5.is(_filtrarH5)) {
+                console.log('Tratar 1° Caso: A1')
+                _el.nextUntil(_filtrarH2).addClass('ocultar')
+            }
+            // if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)) {
+            //     _el.nextUntil(_filtrarH2).addClass('ocultar')
+            // }
+            // if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)) {
+            //     _el.nextUntil(_filtrarH3).addClass('ocultar')
+            // }
+            // if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && !nlsCheckH4.is(_filtrarH4)) {
+            //     _el.nextUntil(_filtrarH3).addClass('ocultar')
+            // }
+            // if (!nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)) {
+            //     _el.nextUntil(_filtrarH4).addClass('ocultar')
+            // }
+            // if (nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)) {
+            //     _el.nextUntil(_filtrarH4).addClass('ocultar')
+            // }
+            // if (!nlsCheckH2.is(_filtrarH2) && !nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)) {
+            //     _el.nextUntil(_filtrarH4).addClass('ocultar')
+            // }
+            // if (nlsCheckH2.is(_filtrarH2) && nlsCheckH3.is(_filtrarH3) && nlsCheckH4.is(_filtrarH4)) {
+            //     _el.nextUntil(_filtrarH4).addClass('ocultar')
+            // }
+            // ! tratar classes de niveis inferiores
+            // if (!checkH1.is(_filtrarH1) && checkH5.is(_filtrarH5)) {
+            //     _el.nextUntil(_filtrarH5).addClass('ocultar')
+            //     checkH5.removeClass('ocultar')
+            //     checkH5.addClass('n5-recolhido')
+            // } else
+            // if (!checkH1.is(_filtrarH1) && checkH6.is(_filtrarH6)) {
+            //     _el.nextUntil(_filtrarH6).addClass('ocultar')
+            //     checkH6.removeClass('ocultar')
+            //     checkH6.addClass('n6-recolhido')
+            // }
+
+        } else
+        if (recolhido) { // * #EXPANDIR-H4
+            _el.removeClass('n5-recolhido')
+
+
+
         }
     }
 }
